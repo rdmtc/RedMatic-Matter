@@ -1,0 +1,30 @@
+{
+    "name": "redmatic-matter",
+    "version": "0.0.1",
+    "description": "Placeholder to reserve the package name. RedMatic-Matter will be a set of Node-RED nodes that expose Homematic CCU devices (via node-red-contrib-ccu) and arbitrary Node-RED data as a Matter bridge, built on matter.js - the Matter sibling of redmatic-homekit.",
+    "main": "none",
+    "author": "Sebastian Raff <hobbyquaker@gmail.com>",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rdmtc/RedMatic-Matter.git"
+    },
+    "bugs": {
+        "url": "https://github.com/rdmtc/RedMatic-Matter/issues"
+    },
+    "homepage": "https://github.com/rdmtc/RedMatic-Matter",
+    "keywords": [
+        "matter",
+        "matter.js",
+        "homematic",
+        "homematic-ip",
+        "ccu",
+        "redmatic"
+    ],
+    "files": [
+        "README.md"
+    ],
+    "engines": {
+        "node": "^22.13 || >=24"
+    }
+}
