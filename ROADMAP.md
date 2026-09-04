@@ -519,13 +519,19 @@ valve channels are plug-in units; energy channels are listed as
 
 ## 11. Tests, fixtures and CI
 
-Status 2026-09-04: **done in 1.0.0-dev.0** except the Node-RED 4/5
-registration smoke on CI (`tools/smoke-local.sh` exists; CI runs
-`node --test` on Node 22/24 × Node-RED 4/5 as in HomeKit, the first run on
-GitHub is pending the push). Test files bind real UDP ports spread by pid
+Status 2026-09-04: **done in 1.0.0-dev.0**; `ci.yml` is green on GitHub
+(lint + native scan, `node --test` on Node 22/24 × Node-RED 4/5) after
+two rounds of fixes the runners forced: a start race between the scheduled
+and the explicit bridge start (now idempotent) and timing margins in the
+press tests (CI runners commit matter.js state slowly; matter.js' press
+timers start on commit). `tools/smoke-local.sh` passed locally against a
+fresh Node-RED 5 (shallow install, all six node sets register, bridge
+online with pairing code). Test files bind real UDP ports spread by pid
 (`test/helpers/matter-harness.js`); `mapping.snapshot.json` replaces the
 "round-trip every mapping" idea together with the device-type
-instantiation test.
+instantiation test. Seen on CI, harmless so far, worth watching: a
+`Datasource not yet initialized` rollback warning for a `set()` issued
+right after `bridge.start()` resolved on a slow runner.
 
 - `test/helpers/`: `fake-red.js`, `fake-ccu.js`, `fixtures.js` from
   HomeKit; a `matter-harness.js` that starts a real ServerNode on a scratch

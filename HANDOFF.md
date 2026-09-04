@@ -6,13 +6,17 @@ the layout. Lab systems, addresses and credentials stay out of this file.
 
 ## Where things stand
 
-`master` is at **1.0.0-dev.0**: everything in ROADMAP tasks 6–11 is
-**implemented and green** (`npm test`: lint, 45 unit tests against real
-matter.js ServerNodes, native scan) but **nothing has run on a CCU or
-against a Matter controller yet** — that is task 15 and the next thing to
-do. No tag, no npm publish; the npm trusted publisher for
-`rdmtc/RedMatic-Matter` → `release.yml` still has to be configured by the
-maintainer.
+`master` is at **1.0.0-dev.0** (plus four follow-up commits from the same
+day): everything in ROADMAP tasks 6–11 is **implemented and green** —
+`npm test` locally (lint, 45 unit tests against real matter.js
+ServerNodes, native scan), **CI green on GitHub** on all five jobs, and
+`tools/smoke-local.sh` green against a fresh Node-RED 5 — but **nothing
+has run on a CCU or against a Matter controller yet**; that is task 15
+and the next thing to do. No tag, no npm publish; the npm trusted
+publisher for `rdmtc/RedMatic-Matter` → `release.yml` still has to be
+configured by the maintainer. The RedMatic IPv6 item (task 13 here) is
+filed as **RedMatic roadmap task 9** (pushed to `rdmtc/RedMatic` master
+2026-09-04) and still needs implementing there before the CCU3 run.
 
 What exists (one `.js` + `.html` per node under `nodes/`, the Matter and
 Homematic layers under `nodes/lib/`):
