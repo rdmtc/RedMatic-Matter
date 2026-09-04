@@ -29,7 +29,8 @@ async function setup(type, {options = {}, values = {}, timing = {}, channelNames
         ccu,
         bridge,
         log: (level, m) => logs.push(level + ' ' + m),
-        timing: {deferOn: 60, longPressGap: 120, ...timing},
+        // generous margins for slow CI runners; the PDT test checks the deferral window against deferOn
+        timing: {deferOn: 300, longPressGap: 600, ...timing},
     });
     hm.start();
     await bridge.start();
