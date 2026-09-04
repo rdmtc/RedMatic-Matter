@@ -42,7 +42,7 @@ module.exports = function (RED) {
 
         const bridge = bridgeOf(req, res);
         if (bridge) {
-            res.status(200).send(JSON.stringify(bridge.info()));
+            res.status(200).send(JSON.stringify(bridge.info({withState: Boolean(req.query.state)})));
         }
     });
 

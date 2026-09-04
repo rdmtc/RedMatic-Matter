@@ -698,8 +698,39 @@ class MatterBridge extends EventEmitter {
         }));
     }
 
-    /** what the editor dialog and the node status show */
-    info() {
+    /**
+     * What the editor dialog and the node status show. With `withState` every
+     * endpoint carries its attribute values (support requests, hardware tests).
+     */
+    info({withState = false} = {}) {
+        const SKIP = new Set(['descriptor', 'identify', 'groups', 'scenesManagement']);
+        const stateOf = (d) => {
+            if (!withState || !d.endpoint || !d.endpoint.lifecycle.isReady) {
+                return undefined;
+            }
+
+            const result = {};
+            for (const [cluster, values] of Object.entries(d.endpoint.state)) {
+                if (SKIP.has(cluster)) {
+                    continue;
+                }
+
+                result[cluster] = {};
+                for (const [attribute, value] of Object.entries(values || {})) {
+                    if (
+                        value !== undefined &&
+                        !/^(featureMap|clusterRevision|attributeList|eventList|acceptedCommandList|generatedCommandList)$/.test(
+                            attribute,
+                        )
+                    ) {
+                        result[cluster][attribute] = value;
+                    }
+                }
+            }
+
+            return result;
+        };
+
         return {
             id: this.id,
             name: this.options.name,
@@ -716,6 +747,7 @@ class MatterBridge extends EventEmitter {
                 type: d.typeKey,
                 label: d.spec.label,
                 owner: d.spec.ownerId,
+                state: stateOf(d),
             })),
             storage: storagePath ? path.join(storagePath, this.id) : null,
         };
