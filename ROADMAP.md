@@ -621,6 +621,45 @@ counterpart (D-16) and when that changes:
 
 ## 15. Hardware verification and release 1.0.0
 
+**Results 2026-09-04, round 1 on the OpenCCU box (x86_64 VM, RedMatic
+9.0.0-alpha.1, redmatic-homekit 4.0.0-dev.7 installed and paired next to
+it), 1.0.0-dev.1 installed as a tarball:**
+
+- Install 10 s, 141 MB for `@matter/*` (164 MB on disk in total), all six
+  node sets register, RSS of the Node-RED process 270 MB with HomeKit and
+  Matter loaded (RAM used on the box +137 MB for matter.js and 7
+  endpoints; OQ-4 needs the 50/150-endpoint runs still), bridge online
+  9 s after a restart, mDNS answers on IPv4 and IPv6 with the
+  commissionable record (`tools/mdns-browse.js`).
+- **Coexistence (OQ-5): both bridges up and paired in one process**, the
+  Matter one discoverable after a Node-RED restart; the HomeKit side was
+  not re-browsed in this round.
+- **Diagnostic controller is the maintainer's own [she](https://github.com/hobbyquaker/she)
+  (matter.js controller, dev instance on the house LAN) instead of Home
+  Assistant** — commissioning by QR payload through its HTTP API, device
+  and endpoint listing, `onOff.toggle`, `levelControl.moveToLevelWithOnOff`
+  and `onOff.on` on the generic nodes all arrived in Node-RED as remote
+  writes (universal output `0/onOff/onOff`, `0/levelControl/currentLevel`,
+  pseudobutton message + snap-back).
+- **Apple Home paired** as fabrics 2 and 3 (0x1349 + Apple's second
+  "Keychain" fabric 0x1384) through the **commissioning window opened
+  from the dialog** while she held fabric 1 — the untested multi-admin
+  path works. Verified by the maintainer in the Home app: all 7
+  accessories listed with their names; Matter Switch follows and keeps
+  its state; Matter Lamp on/50 %/off; **HmIP-PDT 0 → 30 % and 0 → 60 %
+  from the Home app, the real lamp follows** (log: "on + level" from Home
+  became one `LEVEL` write, the slider's burst of level writes went out
+  as individual `LEVEL` writes); WRC2 battery 90 %; Node-RED restart with
+  3 fabrics kept, endpoints re-created with their last values (PDT 60 %).
+  **Open**: the pseudobutton's snap-back took ≈ 6 s to show in the Home
+  app (locally it resets after 250 ms; the delay is in the subscription
+  report — measure with she, compare a longer reset delay); WRC2 presses
+  as Home automations need a home hub (none in the lab), verified only
+  on the Node-RED side; the PDT was unreachable at first (UNREACH true on
+  the CCU, mirrored as reachable=false) until plugged in.
+- Not yet: Charly/CCU3 (waits for RedMatic task 9), Alexa, redeploy
+  identity check, delete-node check, 50/150 endpoint RAM runs.
+
 Gate before the first tag:
 
 - Green `ci.yml`.

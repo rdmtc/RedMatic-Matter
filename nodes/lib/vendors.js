@@ -3,6 +3,7 @@
 
 const VENDORS = {
     0x1349: 'Apple Home',
+    0x1384: 'Apple Home (Keychain)', // the second fabric iOS adds next to 0x1349 (seen 2026-09-04)
     0x6006: 'Google Home',
     0x134f: 'Amazon Alexa',
     0x10e1: 'Samsung SmartThings',
