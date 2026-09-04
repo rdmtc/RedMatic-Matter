@@ -7,8 +7,36 @@ append commits automatically).
 
 ## Unreleased (1.0.0)
 
-First implementation (1.0.0-dev.0, 2026-09-04), not yet verified on
-hardware or against a real controller (ROADMAP task 15).
+**Release-Notes (Deutsch).** RedMatic-Matter ist das Matter-Gegenstück zu
+RedMatic-HomeKit: Homematic-Geräte einer CCU und beliebige Node-RED-Daten
+erscheinen als Matter-Bridge in Apple Home, Alexa, Google Home oder Home
+Assistant – ohne Cloud, ohne zusätzliche Hardware, installiert über den
+Palettenmanager von RedMatic 9 (Suche nach `redmatic-matter`). Beide Pakete
+laufen nebeneinander im selben Node-RED; Garagentor, Bewässerung und TV
+bleiben bei RedMatic-HomeKit, weil Matter dafür keine Gerätetypen hat, die
+die großen Controller darstellen. Geprüft wurde mit Apple Home und dem
+matter.js-Controller des Autors auf einer OpenCCU: Koppeln per QR-Code und
+über das Kopplungsfenster für einen zweiten Controller, Schalten und Dimmen
+in beide Richtungen, Tasterdrücke, Batteriestand, Neustart mit erhaltenen
+Kopplungen, Hinzufügen und Entfernen von Geräten ohne Neustart. Matter
+braucht IPv6 im LAN und einen Controller im selben Netzsegment; RedMatic
+sorgt auf der CCU3 für die nötige Link-local-Adresse. Wer ein Gerät
+vermisst oder falsch abgebildet sieht: Issue mit Gerätetyp öffnen, die
+generische Zuordnung lässt sich meist ohne Code erweitern.
+
+**Release notes (English summary).** RedMatic-Matter is the Matter sibling
+of RedMatic-HomeKit: Homematic devices of a CCU and arbitrary Node-RED
+data appear as a Matter bridge in Apple Home, Alexa, Google Home or Home
+Assistant, installed through the palette manager of RedMatic 9, running
+side by side with RedMatic-HomeKit in one Node-RED. Verified with Apple
+Home and the author's matter.js controller on an OpenCCU: pairing by QR
+code and through the commissioning window for a second controller,
+switching and dimming both ways, key presses, battery level, restart with
+pairings kept, adding and removing devices without a restart. Matter needs
+IPv6 on the LAN and a controller on the same segment.
+
+Built on [matter.js](https://github.com/matter-js/matter.js) by Ingo
+Fischer (Apollon77) and contributors.
 
 ### Added
 

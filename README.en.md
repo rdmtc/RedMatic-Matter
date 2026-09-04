@@ -120,6 +120,16 @@ tools/smoke-local.sh   # packs, installs shallowly into a fresh Node-RED 5, brin
 Notes for contributors and agents are in [AGENTS.md](AGENTS.md), the plan
 with every decision in [ROADMAP.md](ROADMAP.md).
 
+## Credits
+
+This project stands on [matter.js](https://github.com/matter-js/matter.js)
+by Ingo Fischer ([Apollon77](https://github.com/Apollon77)) and the
+project's contributors — the complete Matter implementation in JavaScript
+without which a Matter bridge on the CCU through the palette manager would
+not exist. The device fixtures for the tests come from Daniel Perna's
+[pydevccu](https://github.com/danielperna84/pydevccu) catalogue, the role
+detection and the editor concepts from RedMatic-HomeKit.
+
 ## Trademark and certification notice
 
 > [!IMPORTANT]
