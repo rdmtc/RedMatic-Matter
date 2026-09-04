@@ -8,16 +8,15 @@ the layout. Lab systems, addresses and credentials stay out of this file.
 
 `master` is at **1.0.0, released 2026-09-04** (npm `latest`, GitHub
 release `v1.0.0` via the OIDC pipeline; the next change bumps to
-`1.0.1-dev.0` or `1.1.0-dev.0`): everything in ROADMAP tasks 6–11 is **implemented and green** —
-`npm test` locally (lint, 45 unit tests against real matter.js
-ServerNodes, native scan), **CI green on GitHub** on all five jobs, and
-`tools/smoke-local.sh` green against a fresh Node-RED 5 — but **nothing
-has run on a CCU or against a Matter controller yet**; that is task 15
-and the next thing to do. No tag, no npm publish; the npm trusted
-publisher for `rdmtc/RedMatic-Matter` → `release.yml` still has to be
-configured by the maintainer. The RedMatic IPv6 item (task 13 here) is
-filed as **RedMatic roadmap task 9** (pushed to `rdmtc/RedMatic` master
-2026-09-04) and still needs implementing there before the CCU3 run.
+`1.0.1-dev.0` or `1.1.0-dev.0`): ROADMAP tasks 6–11 are implemented,
+`npm test` (lint, 45 unit tests against real matter.js ServerNodes, native
+scan), CI on GitHub and `tools/smoke-local.sh` are green, and the OpenCCU
+lab box ran three hardware rounds with Apple Home and the maintainer's
+she controller (results in ROADMAP task 15). The box runs the released
+1.0.0 from npm with the "matter smoke" flow and three fabrics. Still open
+for 1.0.x: the CCU3 (Charly) run — waits for the RedMatic release with
+the IPv6 fix (RedMatic roadmap task 9, in progress in another session) —
+and Alexa (no Echo in the lab).
 
 What exists (one `.js` + `.html` per node under `nodes/`, the Matter and
 Homematic layers under `nodes/lib/`):
@@ -112,8 +111,10 @@ UPDATE_SNAPSHOT=1 node --test test/roles.test.js test/mapping.test.js
 MATTER_TEST_LOG=1 node --test test/matter.test.js   # bridge log lines during tests
 ```
 
-Versioning: `npm version 1.0.0-dev.N --no-git-tag-version` for every
-significant change, commit message `1.0.0-dev.N: …`, push. Commits end
+Versioning: `npm version 1.0.1-dev.N --no-git-tag-version` (or `1.1.0-dev.N`
+for features) for every significant change, commit message
+`1.0.1-dev.N: …`, push; a tag `v1.0.1-dev.N` publishes to `next`, `v1.0.1`
+to `latest`. Commits end
 with the `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>` line.
 
 The tests bind real UDP ports (ranges spread by pid) and need an IPv6
