@@ -515,18 +515,32 @@ class MatterBridge extends EventEmitter {
         this.log('debug', 'endpoint ' + device.id + ' = ' + endpoint.number + ' (' + device.built.key + ')');
     }
 
-    /** create the ServerNode, add every known endpoint, go online */
+    /**
+     * Create the ServerNode, add every known endpoint, go online. Idempotent:
+     * a start in progress (the scheduled one may fire while an explicit
+     * `start()` is awaited) is returned instead of queued a second time.
+     */
     start() {
         clearTimeout(this.startTimer);
         if (this.server) {
             return this.queue;
         }
 
-        this.state = 'starting';
-        return this.enqueue(() => this.doStart());
+        if (!this.startPromise) {
+            this.state = 'starting';
+            this.startPromise = this.enqueue(() => this.doStart()).finally(() => {
+                this.startPromise = null;
+            });
+        }
+
+        return this.startPromise;
     }
 
     async doStart() {
+        if (this.server) {
+            return;
+        }
+
         const o = this.options;
         this.error = null;
         try {
@@ -620,7 +634,10 @@ class MatterBridge extends EventEmitter {
         this.state = 'error';
         this.error = message;
         this.log('error', message);
-        this.emit('error', new Error(message));
+        // an EventEmitter throws on 'error' without a listener; a bridge without child nodes has none
+        if (this.listenerCount('error') > 0) {
+            this.emit('error', new Error(message));
+        }
     }
 
     async destroyServer() {
