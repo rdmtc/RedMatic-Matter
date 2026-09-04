@@ -190,6 +190,7 @@ class HomematicDevice {
         const {short, long, release, reportUsage} = e.keys;
         const press = (kind) => {
             const {press: doPress} = require('./press');
+            this.log('debug', e.address + ' key ' + kind + ' press');
             doPress(device, kind, this.timing).catch((error) =>
                 this.log('warn', e.address + ' press failed: ' + error.message),
             );
@@ -206,6 +207,7 @@ class HomematicDevice {
             const end = () => {
                 if (holding) {
                     holding = false;
+                    this.log('debug', e.address + ' key long press released');
                     device.set({switch: {currentPosition: 0}});
                 }
             };
@@ -213,6 +215,7 @@ class HomematicDevice {
             this.subscribe({cache: false, change: false, datapointName: long}, () => {
                 if (!holding) {
                     holding = true;
+                    this.log('debug', e.address + ' key long press started');
                     device.set({switch: {currentPosition: 1}});
                 }
 
