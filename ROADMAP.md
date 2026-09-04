@@ -19,6 +19,12 @@ Decisions are recorded as **D-n**, open questions as **OQ-n**; both keep
 their ids forever. References to decisions of the sibling projects keep their
 prefixes (`hm2matter M-n`, `RedMatic-HomeKit D-n`, `hm2mqtt H-n`).
 
+Status 2026-09-04, evening: **1.0.0 released** (npm `latest`, GitHub release
+`v1.0.0`, published through the OIDC pipeline) by maintainer decision after
+the OpenCCU rounds of task 15 with Apple Home and she; the CCU3 (Charly)
+run and Alexa follow as 1.0.x work (task 15 stays open for them, RedMatic
+with the IPv6 fix is under way).
+
 Status 2026-09-04: **tasks 6–11 implemented (1.0.0-dev.0), nothing verified
 on hardware or against a controller yet.** `npm test` is green (lint, 45
 unit tests against real matter.js ServerNodes, native scan). The
@@ -690,7 +696,8 @@ it), 1.0.0-dev.1 installed as a tarball:**
 - Not yet: Charly/CCU3 (waits for RedMatic task 9), Alexa, 150 endpoints
   on a real CCU3, Home-app automations on WRC2 presses (home hub).
 
-Gate before the first tag:
+**1.0.0 was tagged 2026-09-04 before the CCU3 and Alexa items below; they
+stay here as the gate for 1.0.x.** The original gate list:
 
 - Green `ci.yml`.
 - Palette install on the OpenCCU test box (172.16.23.119, RedMatic

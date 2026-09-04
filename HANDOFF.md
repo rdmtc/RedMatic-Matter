@@ -6,8 +6,9 @@ the layout. Lab systems, addresses and credentials stay out of this file.
 
 ## Where things stand
 
-`master` is at **1.0.0-dev.0** (plus four follow-up commits from the same
-day): everything in ROADMAP tasks 6–11 is **implemented and green** —
+`master` is at **1.0.0, released 2026-09-04** (npm `latest`, GitHub
+release `v1.0.0` via the OIDC pipeline; the next change bumps to
+`1.0.1-dev.0` or `1.1.0-dev.0`): everything in ROADMAP tasks 6–11 is **implemented and green** —
 `npm test` locally (lint, 45 unit tests against real matter.js
 ServerNodes, native scan), **CI green on GitHub** on all five jobs, and
 `tools/smoke-local.sh` green against a fresh Node-RED 5 — but **nothing
