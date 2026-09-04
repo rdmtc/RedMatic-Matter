@@ -12,10 +12,9 @@
 
 _[English version](README.en.md)_
 
-> **Entwicklungsstand (September 2026):** die Nodes sind implementiert und
-> gegen echte matter.js-Knoten getestet, aber noch nicht auf CCU-Hardware und
-> noch nicht mit Apple Home oder Alexa geprüft. Der Plan steht in
-> [ROADMAP.md](ROADMAP.md), Änderungen im [Changelog](CHANGELOG.md).
+> **Version 1.0.0** (September 2026) ist die erste Version für RedMatic 9,
+> geprüft mit Apple Home und einem matter.js-Controller auf einer OpenCCU.
+> Was sich ändert, steht im [Changelog](CHANGELOG.md).
 
 ## Was es kann
 

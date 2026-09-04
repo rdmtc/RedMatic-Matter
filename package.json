@@ -1,6 +1,6 @@
 {
   "name": "redmatic-matter",
-  "version": "1.0.0-dev.2",
+  "version": "1.0.0",
   "description": "matter.js based Node-RED nodes that expose Homematic CCU devices (via node-red-contrib-ccu) and arbitrary Node-RED data as a Matter bridge - the Matter sibling of redmatic-homekit",
   "main": "none",
   "author": "Sebastian Raff <hobbyquaker@gmail.com>",

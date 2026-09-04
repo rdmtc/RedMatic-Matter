@@ -5,7 +5,7 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
-## Unreleased (1.0.0)
+## 1.0.0 — 2026-09-04
 
 **Release-Notes (Deutsch).** RedMatic-Matter ist das Matter-Gegenstück zu
 RedMatic-HomeKit: Homematic-Geräte einer CCU und beliebige Node-RED-Daten
