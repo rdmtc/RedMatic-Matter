@@ -239,10 +239,15 @@ class Device extends EventEmitter {
             return [];
         }
 
+        // only attributes that exist on the endpoint (state keys of optional,
+        // unsupported attributes are present but have no change event)
         const result = [];
         for (const [cluster, state] of Object.entries(this.endpoint.state)) {
+            const events = this.endpoint.events[cluster] || {};
             for (const attribute of Object.keys(state || {})) {
-                result.push(cluster + '/' + attribute);
+                if (events[attribute + '$Changed']) {
+                    result.push(cluster + '/' + attribute);
+                }
             }
         }
 

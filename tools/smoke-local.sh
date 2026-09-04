@@ -22,7 +22,9 @@ npm init -y >/dev/null
 START=$(date +%s)
 npm install --install-strategy=shallow --no-package-lock --no-audit --no-fund "node-red@$NODE_RED" "$WORK/$TGZ" 2>&1 | tail -1
 echo "install took $(( $(date +%s) - START ))s; nested deps of redmatic-matter: $(ls node_modules/redmatic-matter/node_modules 2>/dev/null | wc -l | tr -d ' ')"
-echo "size of @matter: $(du -sh node_modules/@matter 2>/dev/null | cut -f1) ($(find node_modules/@matter -type f | wc -l | tr -d ' ') files)"
+MATTER_DIR=node_modules/redmatic-matter/node_modules/@matter
+[ -d "$MATTER_DIR" ] || MATTER_DIR=node_modules/@matter
+echo "size of @matter: $(du -sh "$MATTER_DIR" 2>/dev/null | cut -f1) ($(find "$MATTER_DIR" -type f 2>/dev/null | wc -l | tr -d ' ') files) in $MATTER_DIR"
 
 cat > "$WORK/flows.json" <<EOF
 [
