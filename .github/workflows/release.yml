@@ -51,4 +51,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           node .github/release-notes.js "$TAG" > /tmp/notes.md
-          gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md --verify-tag
+          # dev/beta tags are GitHub prereleases, like their npm dist-tag `next`
+          PRE=""
+          case "$TAG" in *-*) PRE="--prerelease";; esac
+          gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md --verify-tag $PRE

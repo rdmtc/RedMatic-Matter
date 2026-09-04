@@ -83,10 +83,15 @@ await transaction.begin()` before calling matter.js (D-19).
    CCU3 IPv6 link-local fix; filed as RedMatic roadmap task 9, not yet
    implemented. Until then the Charly shows the red "no IPv6 address"
    status.
-3. **npm publish**: the first `1.0.0-dev.N` on the `next` tag must be a
-   manual `npm publish --tag next` from a logged-in npm (`npm login` in
-   WSL; this machine was not logged in) before the trusted publisher can
-   be configured. The maintainer asked for exactly that.
+3. **npm publishing is set up** (2026-09-04): the maintainer published
+   1.0.0-dev.1 manually and configured the trusted publisher
+   (`rdmtc/RedMatic-Matter` → `release.yml`); the tag `v1.0.0-dev.2` then
+   published through OIDC to the `next` dist-tag and created the GitHub
+   release. From here: `npm version 1.0.0-dev.N --no-git-tag-version`,
+   commit, `git tag v1.0.0-dev.N && git push origin master --tags`.
+   `npm install redmatic-matter@next` on a CCU takes about 10 s on the
+   OpenCCU VM and keeps fabrics/endpoints (storage is outside
+   `node_modules`).
 4. **Task 14 leftovers**: wiki page, `device-support.md` after task 15.
    English `locales/` help is low priority (maintainer 2026-09-04: nearly
    all users are in the DACH region).
