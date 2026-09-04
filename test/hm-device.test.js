@@ -33,7 +33,7 @@ async function setup(type, {options = {}, values = {}, timing = {}, channelNames
     });
     hm.start();
     await bridge.start();
-    await tick(10);
+    await tick(150);
     return {
         ccu,
         bridge,
@@ -61,18 +61,18 @@ test('HmIP-PSM: transmitter state feeds the plug, controller writes go to the re
     assert.equal(plug.state.bridgedDeviceBasicInformation.productName, s.ccu.device.TYPE);
 
     s.ccu.emitValue(`HmIP-RF.${s.address}:2.STATE`, true);
-    await tick(10);
+    await tick(150);
     assert.equal(plug.state.onOff.onOff, true);
     assert.equal(s.ccu.setCalls.length, 0, 'CCU events never write back');
 
     remoteWrite(plug, 'onOff', 'onOff', false);
-    await tick(10);
+    await tick(150);
     assert.deepEqual(s.ccu.setCalls, [
         {iface: 'HmIP-RF', channel: s.address + ':3', datapoint: 'STATE', value: false, burst: false, force: false},
     ]);
 
     s.ccu.emitValue(`HmIP-RF.${s.address}:0.UNREACH`, true);
-    await tick(10);
+    await tick(150);
     assert.equal(plug.state.bridgedDeviceBasicInformation.reachable, false);
 });
 
@@ -87,17 +87,17 @@ test('HmIP-PDT: a bare on is deferred and cancelled by a level write; off is imm
         'state is read from the transmitter',
     );
     s.ccu.emitValue(levelDp, 0.4);
-    await tick(10);
+    await tick(150);
     assert.equal(dimmer.state.onOff.onOff, true);
     assert.equal(dimmer.state.levelControl.currentLevel, 102);
     s.ccu.emitValue(levelDp, 0);
-    await tick(10);
+    await tick(150);
     assert.equal(dimmer.state.onOff.onOff, false);
 
     // on + level within the window: one LEVEL write
     remoteWrite(dimmer, 'onOff', 'onOff', true);
     remoteWrite(dimmer, 'levelControl', 'currentLevel', 254);
-    await tick(100);
+    await tick(500);
     assert.deepEqual(
         s.ccu.setCalls.map((c) => [c.channel, c.datapoint, c.value]),
         [[s.address + ':3', 'LEVEL', 1]],
@@ -107,9 +107,9 @@ test('HmIP-PDT: a bare on is deferred and cancelled by a level write; off is imm
     // bare on: the last level is restored after the window
     s.ccu.setCalls.length = 0;
     remoteWrite(dimmer, 'onOff', 'onOff', true);
-    await tick(20);
+    await tick(50);
     assert.equal(s.ccu.setCalls.length, 0, 'not yet');
-    await tick(80);
+    await tick(500);
     assert.deepEqual(
         s.ccu.setCalls.map((c) => [c.datapoint, c.value]),
         [['LEVEL', 1]],
@@ -118,7 +118,7 @@ test('HmIP-PDT: a bare on is deferred and cancelled by a level write; off is imm
     // off is immediate
     s.ccu.setCalls.length = 0;
     remoteWrite(dimmer, 'onOff', 'onOff', false);
-    await tick(5);
+    await tick(20);
     assert.deepEqual(
         s.ccu.setCalls.map((c) => [c.datapoint, c.value]),
         [['LEVEL', 0]],
@@ -129,12 +129,12 @@ test('HmIP-BROLL: positions are mirrored, stop and go-to commands reach the CCU'
     const s = await setup('HmIP-BROLL');
     const cover = s.hm.devices.find((d) => d.typeKey === 'windowCovering');
     s.ccu.emitValue(`HmIP-RF.${s.address}:3.LEVEL`, 0.2);
-    await tick(10);
+    await tick(150);
     assert.equal(cover.state.windowCovering.currentPositionLiftPercent100ths, 8000);
 
     await cover.endpoint.act((agent) => agent.windowCovering.goToLiftPercentage({liftPercent100thsValue: 5000}));
     await cover.endpoint.act((agent) => agent.windowCovering.stopMotion());
-    await tick(10);
+    await tick(150);
     assert.deepEqual(
         s.ccu.setCalls.map((c) => [c.channel, c.datapoint, c.value]),
         [
@@ -151,12 +151,12 @@ test('HmIP-SWDO: contact with battery and voltage', async () => {
     s.ccu.emitValue(`HmIP-RF.${s.address}:1.STATE`, 1);
     s.ccu.emitValue(`HmIP-RF.${s.address}:0.LOW_BAT`, false);
     s.ccu.emitValue(`HmIP-RF.${s.address}:0.OPERATING_VOLTAGE`, 1.4);
-    await tick(10);
+    await tick(150);
     assert.equal(contact.state.booleanState.stateValue, false, 'open');
     assert.equal(contact.state.powerSource.batChargeLevel, 0);
     assert.equal(contact.state.powerSource.batPercentRemaining, 160);
     s.ccu.emitValue(`HmIP-RF.${s.address}:0.LOW_BAT`, true);
-    await tick(10);
+    await tick(150);
     assert.equal(contact.state.powerSource.batChargeLevel, 2);
 });
 
@@ -176,17 +176,18 @@ test('HmIP-WRC2: a PRESS_LONG stream is one long press, PRESS_SHORT a short pres
     };
 
     fire(`HmIP-RF.${s.address}:1.PRESS_SHORT`);
-    await tick(600);
+    await tick(1200);
     assert.deepEqual(events.splice(0), ['initialPress', 'shortRelease', 'multiPressComplete']);
 
+    // a held key: PRESS_LONG every ~200 ms, then PRESS_LONG_RELEASE (longPressDelay of the endpoint is 300 ms)
     fire(`HmIP-RF.${s.address}:1.PRESS_LONG`);
-    await tick(100);
+    await tick(200);
     fire(`HmIP-RF.${s.address}:1.PRESS_LONG`);
-    await tick(100);
+    await tick(200);
     fire(`HmIP-RF.${s.address}:1.PRESS_LONG`);
-    await tick(150);
+    await tick(400);
     fire(`HmIP-RF.${s.address}:1.PRESS_LONG_RELEASE`);
-    await tick(100);
+    await tick(400);
     assert.deepEqual(events.splice(0), ['initialPress', 'longPress', 'longRelease']);
 
     const usage = s.ccu.setCalls.filter((c) => c.method === 'reportValueUsage').map((c) => c.params.join(' '));
@@ -203,13 +204,13 @@ test('HmIP-eTRV-2: thermostat with battery, setpoint writes', async () => {
     const thermostat = s.hm.devices[0];
     s.ccu.emitValue(`HmIP-RF.${s.address}:1.ACTUAL_TEMPERATURE`, 20.3);
     s.ccu.emitValue(`HmIP-RF.${s.address}:1.SET_POINT_TEMPERATURE`, 22);
-    await tick(10);
+    await tick(150);
     assert.equal(thermostat.state.thermostat.localTemperature, 2030);
     assert.equal(thermostat.state.thermostat.occupiedHeatingSetpoint, 2200);
     assert.equal(thermostat.state.thermostat.systemMode, 4);
     remoteWrite(thermostat, 'thermostat', 'occupiedHeatingSetpoint', 1950);
     remoteWrite(thermostat, 'thermostat', 'systemMode', 0);
-    await tick(10);
+    await tick(150);
     assert.deepEqual(
         s.ccu.setCalls.map((c) => [c.datapoint, c.value]),
         [

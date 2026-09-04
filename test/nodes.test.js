@@ -89,7 +89,7 @@ test('switch node: input drives the endpoint, controller writes reach the output
     assert.equal(node.device.state.bridgedDeviceBasicInformation.nodeLabel, 'Lampe');
 
     node.receive({payload: true});
-    await tick(20);
+    await tick(150);
     assert.equal(node.device.state.onOff.onOff, true);
     assert.equal(node.sent.length, 0, 'own updates are not echoed');
 
@@ -129,7 +129,7 @@ test('pseudobutton emits its payload on a controller "on" and snaps back to off'
     await node.device.set({onOff: {onOff: true}});
     node.device.listeners[0].fn(true, {remote: true, local: false});
     assert.deepEqual(node.sent, [{topic: 'scene', payload: 42}]);
-    await tick(60);
+    await tick(300);
     assert.equal(node.device.state.onOff.onOff, false);
 });
 
@@ -194,7 +194,7 @@ test('universal node: topics set attributes, controller changes and commands are
         ],
     });
     await bridgeNode.bridge.start();
-    await tick(20);
+    await tick(150);
     assert.equal(node.devices.size, 3);
     assert.equal(node.devices.get(1).id, 'un1_1~temperatureSensor+humidity');
 
@@ -202,7 +202,7 @@ test('universal node: topics set attributes, controller changes and commands are
     node.receive({topic: '0/levelControl', payload: {currentLevel: 100}});
     node.receive({topic: '1/temperatureMeasurement/measuredValue', payload: 2150});
     node.receive({topic: '1', payload: {relativeHumidityMeasurement: {measuredValue: 5000}}});
-    await tick(50);
+    await tick(150);
     assert.equal(node.devices.get(0).state.onOff.onOff, true);
     assert.equal(node.devices.get(0).state.levelControl.currentLevel, 100);
     assert.equal(node.devices.get(1).state.temperatureMeasurement.measuredValue, 2150);

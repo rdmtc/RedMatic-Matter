@@ -26,8 +26,10 @@ function press(device, kind, timing = {}) {
         const up = () => device.set({switch: {currentPosition: 0}});
         switch (kind) {
             case 'long':
+                // matter.js starts its long-press timer when the position change commits;
+                // leave a wide margin so a slow host still sees a long press
                 await down();
-                await sleep(longPressDelay + 100);
+                await sleep(longPressDelay + 400);
                 await up();
                 break;
             case 'double':
