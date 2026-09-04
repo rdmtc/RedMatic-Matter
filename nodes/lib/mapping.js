@@ -210,12 +210,12 @@ function plan(device, ccu, iface, options = {}, channelModes = {}) {
         }
     }
 
-    // the battery lives on the first enabled endpoint of the device
+    // the battery lives on every endpoint of the device (maintainer 2026-09-04:
+    // a remote's buttons each show it, a controller never has to look elsewhere)
     if (battery) {
-        const carrier = result.endpoints.find((e) => e.enabled) || result.endpoints[0];
-        if (carrier) {
-            carrier.typeOptions.battery = true;
-            carrier.battery = true;
+        for (const e of result.endpoints) {
+            e.typeOptions.battery = true;
+            e.battery = true;
         }
     }
 

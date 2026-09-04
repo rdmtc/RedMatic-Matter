@@ -33,9 +33,9 @@
   "BRC-H": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -75,10 +75,10 @@
   },
   "ELV-SH-SW1-BAT": {
     "endpoints": [
-      "1:genericSwitch*",
+      "1:genericSwitch+battery*",
       "3:onOffPlugInUnit+battery",
-      "4:onOffPlugInUnit*",
-      "5:onOffPlugInUnit*"
+      "4:onOffPlugInUnit+battery*",
+      "5:onOffPlugInUnit+battery*"
     ],
     "options": [
       "Battery"
@@ -88,7 +88,7 @@
   "ELV-SH-TACO": {
     "endpoints": [
       "1:temperatureSensor+battery",
-      "2:occupancySensor"
+      "2:occupancySensor+battery"
     ],
     "options": [
       "Battery"
@@ -97,10 +97,10 @@
   },
   "ELV-SH-WSM": {
     "endpoints": [
-      "1:genericSwitch*",
+      "1:genericSwitch+battery*",
       "4:onOffPlugInUnit+battery",
-      "5:onOffPlugInUnit*",
-      "6:onOffPlugInUnit*"
+      "5:onOffPlugInUnit+battery*",
+      "6:onOffPlugInUnit+battery*"
     ],
     "options": [
       "Battery"
@@ -159,13 +159,13 @@
   "HB-UNI-Sen-TEMP-DS18B20": {
     "endpoints": [
       "1:temperatureSensor+battery",
-      "2:temperatureSensor",
-      "3:temperatureSensor",
-      "4:temperatureSensor",
-      "5:temperatureSensor",
-      "6:temperatureSensor",
-      "7:temperatureSensor",
-      "8:temperatureSensor"
+      "2:temperatureSensor+battery",
+      "3:temperatureSensor+battery",
+      "4:temperatureSensor+battery",
+      "5:temperatureSensor+battery",
+      "6:temperatureSensor+battery",
+      "7:temperatureSensor+battery",
+      "8:temperatureSensor+battery"
     ],
     "options": [
       "Battery"
@@ -313,12 +313,12 @@
   "HM-Dis-EP-WM55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch"
+      "2:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -337,15 +337,15 @@
   "HM-Dis-WM55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1074,13 +1074,13 @@
   "HM-MOD-EM-8": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1090,7 +1090,7 @@
   "HM-MOD-EM-8Bit": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1174,7 +1174,7 @@
   "HM-PB-2-FM": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1184,7 +1184,7 @@
   "HM-PB-2-WM": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1194,7 +1194,7 @@
   "HM-PB-2-WM55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1204,7 +1204,7 @@
   "HM-PB-2-WM55-2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1214,9 +1214,9 @@
   "HM-PB-4-WM": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1226,25 +1226,25 @@
   "HM-PB-4Dis-WM": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch",
-      "17:genericSwitch",
-      "18:genericSwitch",
-      "19:genericSwitch",
-      "20:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery",
+      "17:genericSwitch+battery",
+      "18:genericSwitch+battery",
+      "19:genericSwitch+battery",
+      "20:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1254,25 +1254,25 @@
   "HM-PB-4Dis-WM-2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch",
-      "17:genericSwitch",
-      "18:genericSwitch",
-      "19:genericSwitch",
-      "20:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery",
+      "17:genericSwitch+battery",
+      "18:genericSwitch+battery",
+      "19:genericSwitch+battery",
+      "20:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1282,11 +1282,11 @@
   "HM-PB-6-WM55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1296,9 +1296,9 @@
   "HM-PBI-4-FM": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1317,17 +1317,17 @@
   "HM-RC-12": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1337,17 +1337,17 @@
   "HM-RC-12-B": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1357,17 +1357,17 @@
   "HM-RC-12-SW": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1377,21 +1377,21 @@
   "HM-RC-19": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1401,21 +1401,21 @@
   "HM-RC-19-B": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1425,21 +1425,21 @@
   "HM-RC-19-SW": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1465,9 +1465,9 @@
   "HM-RC-4": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1477,9 +1477,9 @@
   "HM-RC-4-2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1489,9 +1489,9 @@
   "HM-RC-4-3": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1501,9 +1501,9 @@
   "HM-RC-4-3-D": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1513,9 +1513,9 @@
   "HM-RC-4-B": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1525,13 +1525,13 @@
   "HM-RC-8": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1541,25 +1541,25 @@
   "HM-RC-Dis-H-x-EU": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch",
-      "17:genericSwitch",
-      "18:genericSwitch",
-      "19:genericSwitch",
-      "20:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery",
+      "17:genericSwitch+battery",
+      "18:genericSwitch+battery",
+      "19:genericSwitch+battery",
+      "20:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1569,8 +1569,8 @@
   "HM-RC-Key3": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1580,8 +1580,8 @@
   "HM-RC-Key3-B": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1591,9 +1591,9 @@
   "HM-RC-Key4-2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1603,9 +1603,9 @@
   "HM-RC-Key4-3": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1633,8 +1633,8 @@
   "HM-RC-Sec3": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1644,8 +1644,8 @@
   "HM-RC-Sec3-B": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1655,9 +1655,9 @@
   "HM-RC-Sec4-2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1667,9 +1667,9 @@
   "HM-RC-Sec4-3": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -1700,8 +1700,8 @@
   "HM-SCI-3-FM": {
     "endpoints": [
       "1:contactSensor+battery",
-      "2:contactSensor",
-      "3:contactSensor"
+      "2:contactSensor+battery",
+      "3:contactSensor+battery"
     ],
     "options": [
       "Battery"
@@ -1783,8 +1783,8 @@
   "HM-Sec-RHS": {
     "endpoints": [
       "1:contactSensor+battery",
-      "2:contactSensor",
-      "3:contactSensor"
+      "2:contactSensor+battery",
+      "3:contactSensor+battery"
     ],
     "options": [
       "Battery"
@@ -1794,8 +1794,8 @@
   "HM-Sec-RHS-2": {
     "endpoints": [
       "1:contactSensor+battery",
-      "2:contactSensor",
-      "3:contactSensor"
+      "2:contactSensor+battery",
+      "3:contactSensor+battery"
     ],
     "options": [
       "Battery"
@@ -1995,8 +1995,8 @@
   "HM-Sen-MDIR-WM55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:occupancySensor"
+      "2:genericSwitch+battery",
+      "3:occupancySensor+battery"
     ],
     "options": [
       "Battery"
@@ -2060,14 +2060,14 @@
   "HM-WDC7000": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -2121,10 +2121,10 @@
   "HM-WDS30-OT2-SM": {
     "endpoints": [
       "1:temperatureSensor+battery",
-      "2:temperatureSensor",
-      "3:temperatureSensor",
-      "4:temperatureSensor",
-      "5:temperatureSensor"
+      "2:temperatureSensor+battery",
+      "3:temperatureSensor+battery",
+      "4:temperatureSensor+battery",
+      "5:temperatureSensor+battery"
     ],
     "options": [
       "Battery"
@@ -2134,10 +2134,10 @@
   "HM-WDS30-OT2-SM-2": {
     "endpoints": [
       "1:temperatureSensor+battery",
-      "2:temperatureSensor",
-      "3:temperatureSensor",
-      "4:temperatureSensor",
-      "5:temperatureSensor"
+      "2:temperatureSensor+battery",
+      "3:temperatureSensor+battery",
+      "4:temperatureSensor+battery",
+      "5:temperatureSensor+battery"
     ],
     "options": [
       "Battery"
@@ -2207,7 +2207,7 @@
   "HMIP-WRC2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -2508,16 +2508,16 @@
   },
   "HmIP-DLP": {
     "endpoints": [
-      "1:genericSwitch*",
+      "1:genericSwitch+battery*",
       "4:onOffPlugInUnit+battery",
-      "5:onOffPlugInUnit",
-      "6:onOffPlugInUnit",
-      "7:onOffPlugInUnit",
-      "8:onOffPlugInUnit",
-      "9:onOffPlugInUnit",
-      "10:onOffPlugInUnit",
-      "11:onOffPlugInUnit",
-      "12:doorLock"
+      "5:onOffPlugInUnit+battery",
+      "6:onOffPlugInUnit+battery",
+      "7:onOffPlugInUnit+battery",
+      "8:onOffPlugInUnit+battery",
+      "9:onOffPlugInUnit+battery",
+      "10:onOffPlugInUnit+battery",
+      "11:onOffPlugInUnit+battery",
+      "12:doorLock+battery"
     ],
     "options": [
       "Battery",
@@ -2787,8 +2787,8 @@
   "HmIP-HEATING": {
     "endpoints": [
       "1:thermostat+battery+humidity",
-      "3:contactSensor",
-      "5:genericSwitch*"
+      "3:contactSensor+battery",
+      "5:genericSwitch+battery*"
     ],
     "options": [
       "Battery",
@@ -2800,9 +2800,9 @@
   "HmIP-KRC4": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -2812,9 +2812,9 @@
   "HmIP-KRCA": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -2912,13 +2912,13 @@
   "HmIP-MOD-RC8": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -2937,8 +2937,8 @@
   "HmIP-MP3P": {
     "endpoints": [
       "6:dimmableLight+battery",
-      "7:dimmableLight*",
-      "8:dimmableLight*"
+      "7:dimmableLight+battery*",
+      "8:dimmableLight+battery*"
     ],
     "options": [
       "Battery"
@@ -2957,10 +2957,10 @@
   },
   "HmIP-PCBS-BAT": {
     "endpoints": [
-      "1:genericSwitch*",
+      "1:genericSwitch+battery*",
       "3:onOffPlugInUnit+battery",
-      "4:onOffPlugInUnit*",
-      "5:onOffPlugInUnit*"
+      "4:onOffPlugInUnit+battery*",
+      "5:onOffPlugInUnit+battery*"
     ],
     "options": [
       "Battery"
@@ -3011,13 +3011,13 @@
   "HmIP-RC8": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -3169,8 +3169,8 @@
   "HmIP-SMI55": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:occupancySensor+illuminance"
+      "2:genericSwitch+battery",
+      "3:occupancySensor+battery+illuminance"
     ],
     "options": [
       "Battery",
@@ -3259,8 +3259,8 @@
   "HmIP-STE2-PCB": {
     "endpoints": [
       "1:temperatureSensor+battery",
-      "2:temperatureSensor",
-      "3:temperatureSensor"
+      "2:temperatureSensor+battery",
+      "3:temperatureSensor+battery"
     ],
     "options": [
       "Battery"
@@ -3434,10 +3434,10 @@
   },
   "HmIP-WGC": {
     "endpoints": [
-      "1:genericSwitch*",
+      "1:genericSwitch+battery*",
       "3:onOffPlugInUnit+battery",
-      "4:onOffPlugInUnit*",
-      "5:onOffPlugInUnit*"
+      "4:onOffPlugInUnit+battery*",
+      "5:onOffPlugInUnit+battery*"
     ],
     "options": [
       "Battery"
@@ -3480,11 +3480,11 @@
   "HmIP-WRC6": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -3494,7 +3494,7 @@
   "HmIP-WRCD": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -3504,8 +3504,8 @@
   "HmIP-WRCR": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -3923,9 +3923,9 @@
   "RC-H": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -3973,14 +3973,14 @@
   "WS550": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -3992,14 +3992,14 @@
   "WS550LCB": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -4011,14 +4011,14 @@
   "WS550LCW": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -4030,14 +4030,14 @@
   "WS550Tech": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -4049,14 +4049,14 @@
   "WS888": {
     "endpoints": [
       "1:temperatureSensor+battery+humidity+illuminance",
-      "2:temperatureSensor+humidity+illuminance",
-      "3:temperatureSensor+humidity+illuminance",
-      "4:temperatureSensor+humidity+illuminance",
-      "5:temperatureSensor+humidity+illuminance",
-      "6:temperatureSensor+humidity+illuminance",
-      "7:temperatureSensor+humidity+illuminance",
-      "8:temperatureSensor+humidity+illuminance",
-      "10:temperatureSensor+humidity"
+      "2:temperatureSensor+battery+humidity+illuminance",
+      "3:temperatureSensor+battery+humidity+illuminance",
+      "4:temperatureSensor+battery+humidity+illuminance",
+      "5:temperatureSensor+battery+humidity+illuminance",
+      "6:temperatureSensor+battery+humidity+illuminance",
+      "7:temperatureSensor+battery+humidity+illuminance",
+      "8:temperatureSensor+battery+humidity+illuminance",
+      "10:temperatureSensor+battery+humidity"
     ],
     "options": [
       "Battery",
@@ -4068,25 +4068,25 @@
   "ZEL STG RM DWT 10": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch",
-      "5:genericSwitch",
-      "6:genericSwitch",
-      "7:genericSwitch",
-      "8:genericSwitch",
-      "9:genericSwitch",
-      "10:genericSwitch",
-      "11:genericSwitch",
-      "12:genericSwitch",
-      "13:genericSwitch",
-      "14:genericSwitch",
-      "15:genericSwitch",
-      "16:genericSwitch",
-      "17:genericSwitch",
-      "18:genericSwitch",
-      "19:genericSwitch",
-      "20:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery",
+      "5:genericSwitch+battery",
+      "6:genericSwitch+battery",
+      "7:genericSwitch+battery",
+      "8:genericSwitch+battery",
+      "9:genericSwitch+battery",
+      "10:genericSwitch+battery",
+      "11:genericSwitch+battery",
+      "12:genericSwitch+battery",
+      "13:genericSwitch+battery",
+      "14:genericSwitch+battery",
+      "15:genericSwitch+battery",
+      "16:genericSwitch+battery",
+      "17:genericSwitch+battery",
+      "18:genericSwitch+battery",
+      "19:genericSwitch+battery",
+      "20:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -4096,8 +4096,8 @@
   "ZEL STG RM FDK": {
     "endpoints": [
       "1:contactSensor+battery",
-      "2:contactSensor",
-      "3:contactSensor"
+      "2:contactSensor+battery",
+      "3:contactSensor+battery"
     ],
     "options": [
       "Battery"
@@ -4137,9 +4137,9 @@
   "ZEL STG RM FST UP4": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -4173,9 +4173,9 @@
   "ZEL STG RM HS 4": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch",
-      "4:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery",
+      "4:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -4185,7 +4185,7 @@
   "ZEL STG RM WT 2": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch"
+      "2:genericSwitch+battery"
     ],
     "options": [
       "Battery"
@@ -4195,8 +4195,8 @@
   "atent": {
     "endpoints": [
       "1:genericSwitch+battery",
-      "2:genericSwitch",
-      "3:genericSwitch"
+      "2:genericSwitch+battery",
+      "3:genericSwitch+battery"
     ],
     "options": [
       "Battery"

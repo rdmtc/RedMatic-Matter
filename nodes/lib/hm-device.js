@@ -267,7 +267,7 @@ class HomematicDevice {
 
     wireMaintenance() {
         const m = mapping.maintenancePlan(this.plan);
-        const carrier = this.devices.find((d) => d.spec.options && d.spec.options.battery);
+        const carriers = this.devices.filter((d) => d.spec.options && d.spec.options.battery);
         for (const sub of m.subscriptions) {
             this.subscribe({cache: true, change: true, datapointName: sub.datapoint}, (msg) => {
                 const patch = sub.handler(msg.value);
@@ -279,8 +279,10 @@ class HomematicDevice {
                     for (const device of this.devices) {
                         device.setReachable(patch.reachable);
                     }
-                } else if (carrier) {
-                    carrier.set(patch);
+                } else {
+                    for (const device of carriers) {
+                        device.set(patch);
+                    }
                 }
             });
         }

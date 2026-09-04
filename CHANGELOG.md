@@ -30,7 +30,7 @@ hardware or against a real controller (ROADMAP task 15).
   illuminance), smoke, water and rain detectors, temperature/humidity/light
   sensors, CO₂ sensors, thermostats (heating; 4.5 °C = off; boost as an
   opt-in plug), door locks (HmIP-DLD/DLS, KeyMatic), keys and remotes
-  (Generic Switch), battery (PowerSource) and reachability from the
+  (Generic Switch), battery (PowerSource, on every endpoint of the device) and reachability from the
   maintenance channel. HmIP actuators read their state from the transmitter
   channel and write to the virtual receiver; HmIP keys are declared "in
   use" so the CCU forwards their presses; HmIP multi-mode inputs follow

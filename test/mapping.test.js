@@ -76,7 +76,7 @@ test('well-known devices map to the expected Matter endpoints', () => {
     assert.deepEqual(endpointsOf('HmIP-WTH-2'), ['1:thermostat+battery+humidity']);
     assert.deepEqual(endpointsOf('HmIP-DLD'), ['1:doorLock+battery']);
     assert.deepEqual(endpointsOf('HM-Sec-Key'), ['1:doorLock'], 'BidCos actuator: LOWBAT is not a battery');
-    assert.deepEqual(endpointsOf('HmIP-WRC2'), ['1:genericSwitch+battery', '2:genericSwitch']);
+    assert.deepEqual(endpointsOf('HmIP-WRC2'), ['1:genericSwitch+battery', '2:genericSwitch+battery']);
     assert.deepEqual(endpointsOf('HM-LC-Sw4-DR'), [
         '1:onOffPlugInUnit',
         '2:onOffPlugInUnit',
@@ -107,7 +107,7 @@ test('options: battery off, tilt off, boost on, humidity off', () => {
     assert.deepEqual(endpointsOf('HmIP-WTH-2', {[wth + ':Humidity']: {disabled: true}}), ['1:thermostat+battery']);
     assert.deepEqual(endpointsOf('HmIP-WTH-2', {[wth + ':Boost']: {enabled: true}}), [
         '1:thermostat+battery+humidity',
-        '1:onOffPlugInUnit(boost)',
+        '1:onOffPlugInUnit+battery(boost)',
     ]);
     assert.deepEqual(planOf('HmIP-WTH-2').options, ['Battery', 'Humidity', 'Boost']);
 });
