@@ -67,20 +67,30 @@ await transaction.begin()` before calling matter.js (D-19).
 
 ## Next steps (roadmap order)
 
-1. **Task 15, hardware gate.** Palette install on the OpenCCU box and on
-   real CCU3 hardware (install time and disk for OQ-6), then
-   `tools/smoke-local.sh`-style checks on the box, then commission from
-   Home Assistant, Apple Home and Alexa. The RedMatic-HomeKit handoff and
-   the maintainer's `~/hk-lab/` scripts hold the box recipes. Expect the
-   first real-controller run to surface conformance details this session
-   could not (no controller here).
+1. **Task 15, hardware gate — round 1 done on the OpenCCU box** (see the
+   results block in ROADMAP task 15): 1.0.0-dev.1 installed as a tarball
+   next to redmatic-homekit, paired with the maintainer's **she** dev
+   instance (the diagnostic controller from now on; commission and
+   command through its HTTP API, `auth: none` on the LAN) and with
+   **Apple Home** through the dialog's commissioning window; writes,
+   events, restart, key presses, endpoint add/remove and a 57-endpoint
+   RAM number verified. The box keeps the "matter smoke" flow tab
+   (bridge `lab0001`, port 5540, PDT + WRC2 selected) and the three
+   fabrics. Left: Charly/CCU3 (blocked by RedMatic task 9), Alexa (no
+   Echo in the lab yet), HomeKit re-browse for OQ-5, redeploy with a
+   type change, Home-app automations on WRC2 presses (needs a home hub).
 2. **Task 13, RedMatic IPv6.** RedMatic 9.0.0 shipped **without** the
-   CCU3 IPv6 link-local fix (`bin/redmatic`, hm2matter M-13); on a CCU3
-   with original firmware the bridge will show the red "no IPv6 address"
-   status until that lands. File it in `../RedMatic/ROADMAP.md`.
-3. **Task 14 leftovers**: `locales/` with English help, wiki page,
-   `device-support.md` after task 15.
-4. **Task 16** items that became cheap: `piHeatingDemand` from valve
+   CCU3 IPv6 link-local fix; filed as RedMatic roadmap task 9, not yet
+   implemented. Until then the Charly shows the red "no IPv6 address"
+   status.
+3. **npm publish**: the first `1.0.0-dev.N` on the `next` tag must be a
+   manual `npm publish --tag next` from a logged-in npm (`npm login` in
+   WSL; this machine was not logged in) before the trusted publisher can
+   be configured. The maintainer asked for exactly that.
+4. **Task 14 leftovers**: wiki page, `device-support.md` after task 15.
+   English `locales/` help is low priority (maintainer 2026-09-04: nearly
+   all users are in the DACH region).
+5. **Task 16** items that became cheap: `piHeatingDemand` from valve
    levels, energy measurement, colour lights on real hardware (HmIP-RGBW).
 
 ## Working here

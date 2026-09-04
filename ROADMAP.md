@@ -657,8 +657,27 @@ it), 1.0.0-dev.1 installed as a tarball:**
   as Home automations need a home hub (none in the lab), verified only
   on the Node-RED side; the PDT was unreachable at first (UNREACH true on
   the CCU, mirrored as reachable=false) until plugged in.
+- **Round 2 the same evening**: after a Node-RED restart the Home app
+  showed "Aktualisieren …" on every accessory until the app itself was
+  restarted (a few seconds "unavailable", then fine); matter.js logged
+  "Ignoring message for unknown session" for Apple's pre-restart sessions
+  — the same class as HomeKit's "not responding" after a restart, to
+  watch on the next rounds. Physical WRC2 presses arrived at the CCU as
+  PRESS_SHORT / PRESS_LONG stream with PRESS_LONG_START and _RELEASE;
+  with the press logging added afterwards, **the CCU's virtual remote
+  HmIP-RCV-50 (opt-in) driven through the JSON-API** proved the key path
+  on the box: a short press became one short Matter press, a PRESS_LONG
+  without release one long press ended by the 1.5 s gap. **OQ-4 first
+  numbers**: 7 → 57 endpoints cost 64 MB RSS (272 → 336 MB, ≈ 1.3 MB per
+  endpoint; the VM had 1.1 GB available), the 57-endpoint bridge started
+  fine. **Unticking the device removed its 50 endpoints** (numbers of the
+  rest unchanged, storage entries erased, she saw the smaller tree);
+  RSS does not shrink afterwards (V8 keeps the heap). she never saw the
+  pseudobutton's 250 ms "on" (its subscription coalesced it), so the
+  6 s in the Home app is Apple's report interval — nothing to fix here.
 - Not yet: Charly/CCU3 (waits for RedMatic task 9), Alexa, redeploy
-  identity check, delete-node check, 50/150 endpoint RAM runs.
+  identity check with a type change, HomeKit re-browse for OQ-5, 150
+  endpoints on a real CCU3.
 
 Gate before the first tag:
 
