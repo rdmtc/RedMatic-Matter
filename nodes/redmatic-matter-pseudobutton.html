@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-matter-pseudobutton', {
+        category: 'redmatic matter',
+        defaults: {
+            bridgeConfig: {value: '', type: 'redmatic-matter-bridge', required: true},
+            name: {value: ''},
+            topic: {value: ''},
+            payload: {value: true},
+            payloadType: {value: 'bool'}
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: 'matter.svg',
+        color: '#E2D96E',
+        paletteLabel: 'button',
+        align: 'left',
+        label() {
+            return this.name || 'pseudobutton';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        },
+        oneditprepare() {
+            if (this.payloadType == null) {
+                this.payloadType = this.payload === '' ? 'date' : 'str';
+            } else if (this.payloadType === 'string' || this.payloadType === 'none') {
+                this.payloadType = 'str';
+            }
+            $('#node-input-payloadType').val(this.payloadType);
+            $('#node-input-payload').typedInput({
+                default: 'str',
+                typeField: $('#node-input-payloadType'),
+                types: ['flow', 'global', 'str', 'num', 'bool', 'json', 'bin', 'date', 'env']
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-matter-pseudobutton">
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="fa fa-sitemap"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-payload"><i class="fa fa-envelope"></i> Payload</label>
+        <input type="text" id="node-input-payload" style="width:70%">
+        <input type="hidden" id="node-input-payloadType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-envelope"></i> Topic</label>
+        <input type="text" id="node-input-topic">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-matter-pseudobutton">
+    <p>Eine Matter-Steckdose, die sich nach dem Einschalten sofort wieder ausschaltet und dabei eine Nachricht
+    sendet – ein Taster für Szenen, Automationen und Sprachassistenten („Hey Siri, Rollläden runter“ /
+    „Alexa, schalte Rollläden ein“).</p>
+    <h3>Einstellungen</h3>
+    <dl class="message-properties">
+        <dt>Topic</dt><dd><code>msg.topic</code> der gesendeten Nachricht.</dd>
+        <dt>Payload</dt><dd><code>msg.payload</code> der gesendeten Nachricht – String, Zahl, JSON, Zeitstempel oder
+            ein Flow-/Global-Kontextwert wie beim Inject-Node.</dd>
+    </dl>
+    <h3>Ausgang</h3>
+    <p>Eine Nachricht je Betätigung durch einen Controller. Der Schalter zeigt kurz „an“ und geht nach 250&nbsp;ms
+    wieder aus.</p>
+</script>

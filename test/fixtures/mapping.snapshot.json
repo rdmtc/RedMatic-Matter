@@ -1,0 +1,4206 @@
+{
+  "ALPHA-IP-RBG": {
+    "endpoints": [
+      "1:thermostat+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "ASH550": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "ASH550I": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "BRC-H": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "CMM": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ELV-SH-BS2": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit*",
+      "10:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "ELV-SH-CTH": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "ELV-SH-SW1-BAT": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit+battery",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ELV-SH-TACO": {
+    "endpoints": [
+      "1:temperatureSensor+battery",
+      "2:occupancySensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ELV-SH-WSM": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "4:onOffPlugInUnit+battery",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HB-LC-Bl1-Velux": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HB-LC-Bl1PBU-FM": {
+    "endpoints": [
+      "1:windowCovering",
+      "2:genericSwitch*",
+      "3:genericSwitch*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HB-LC-Sw1PBU-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:genericSwitch*",
+      "3:genericSwitch*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HB-LC-Sw2PBU-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:genericSwitch*",
+      "4:genericSwitch*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HB-UNI-RGB-LED-CTRL": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HB-UNI-Sen-PRESS": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HB-UNI-Sen-TEMP-DS18B20": {
+    "endpoints": [
+      "1:temperatureSensor+battery",
+      "2:temperatureSensor",
+      "3:temperatureSensor",
+      "4:temperatureSensor",
+      "5:temperatureSensor",
+      "6:temperatureSensor",
+      "7:temperatureSensor",
+      "8:temperatureSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HB-UNI-Sensor-TH-SHT75": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HB-UNI-Sensor-THPD-BME280": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HB-UNI-Sensor1": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HB-WDS40-THP-O": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HBW-LC-RGBWW-IN6-DR": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:dimmableLight",
+      "8:dimmableLight",
+      "9:dimmableLight",
+      "10:dimmableLight",
+      "11:dimmableLight",
+      "12:dimmableLight",
+      "13:dimmableLight",
+      "14:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HBW-LC4-IN4-DR": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:dimmableLight",
+      "6:dimmableLight",
+      "7:dimmableLight",
+      "8:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-CC-RT-DN": {
+    "endpoints": [
+      "4:thermostat"
+    ],
+    "options": [
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HM-CC-RT-DN-BoM": {
+    "endpoints": [
+      "4:thermostat"
+    ],
+    "options": [
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HM-CC-SCD": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-CC-TC": {
+    "endpoints": [
+      "1:temperatureSensor+humidity",
+      "2:thermostat"
+    ],
+    "options": [
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HM-CC-VD": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-CC-VG-1": {
+    "endpoints": [
+      "1:thermostat+humidity",
+      "2:contactSensor"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HM-DW-WM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight",
+      "4:dimmableLight",
+      "5:dimmableLight",
+      "6:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Dis-EP-WM55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": [
+      "3:key"
+    ]
+  },
+  "HM-Dis-TD-T": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Dis-WM55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-ES-PMSw1-DR": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl-DN-R1": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl-DN-R2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl-DN-R3": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl-DN-R4": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-Pl-DN-R5": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSw1-SM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-PMSwX": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "2:energy"
+    ]
+  },
+  "HM-ES-TX-WM": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": [
+      "1:energy"
+    ]
+  },
+  "HM-LC-AO-SM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1-FM": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1-FM-2": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1-PB-FM": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1-SM": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1-SM-2": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Bl1PBU-FM": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-BlX": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-DDC1-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-DW-WM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "3:dimmableLight",
+      "5:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1L-CV": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1L-CV-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1L-Pl": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1L-Pl-2": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1L-Pl-3": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1PWM-CV": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1PWM-CV-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-CV": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-CV-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-DR": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-FM": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-FM-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-FM-LF": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-Pl": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-Pl-2": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1T-Pl-3": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1TPBU-FM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim1TPBU-FM-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim2L-CV": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim2L-SM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim2L-SM-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight",
+      "4:dimmableLight",
+      "5:dimmableLight",
+      "6:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim2T-SM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Dim2T-SM-2": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight",
+      "4:dimmableLight",
+      "5:dimmableLight",
+      "6:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Ja1PBU-FM": {
+    "endpoints": [
+      "1:windowCovering+tilt"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-JaX": {
+    "endpoints": [
+      "1:windowCovering+tilt"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-RGBW-WM": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Ba-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-DR": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-FM-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-PB-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-3": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-CT-R1": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-CT-R2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-CT-R3": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-CT-R4": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-CT-R5": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-DN-R1": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-DN-R2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-DN-R3": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-DN-R4": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-DN-R5": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-Pl-OM54": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-SM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-SM-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1-SM-ATmega168": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw1PBU-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-DR": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-DR-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-FM-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-PB-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2-SM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw2PBU-FM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-Ba-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-DR": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-DR-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-PCB-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-SM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-SM-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-SM-ATmega168": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-WM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-Sw4-WM-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-LC-SwX": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-MD": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-MOD-EM-8": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-MOD-EM-8Bit": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-MOD-Re-8": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit",
+      "6:onOffPlugInUnit",
+      "7:onOffPlugInUnit",
+      "8:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-CF-Pl": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-CFM-Pl": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-CFM-TW": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-CM-PCB": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-LED16": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-OU-X": {
+    "endpoints": [
+      "1:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-PB-2-FM": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-2-WM": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-2-WM55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-2-WM55-2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-4-WM": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-4Dis-WM": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch",
+      "17:genericSwitch",
+      "18:genericSwitch",
+      "19:genericSwitch",
+      "20:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-4Dis-WM-2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch",
+      "17:genericSwitch",
+      "18:genericSwitch",
+      "19:genericSwitch",
+      "20:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PB-6-WM55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PBI-4-FM": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-PBI-X": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-12": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-12-B": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-12-SW": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-19": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-19-B": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-19-SW": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-2-PBU-FM": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-RC-2-PBU-FM-2": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-RC-4": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-4-2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-4-3": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-4-3-D": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-4-B": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-8": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Dis-H-x-EU": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch",
+      "17:genericSwitch",
+      "18:genericSwitch",
+      "19:genericSwitch",
+      "20:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Key3": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Key3-B": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Key4-2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Key4-3": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-P1": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-SB-X": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Sec3": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Sec3-B": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Sec4-2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-Sec4-3": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RC-X": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-RCV-50": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-ReSC-Win-PCB-xx": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-SCI-3-FM": {
+    "endpoints": [
+      "1:contactSensor+battery",
+      "2:contactSensor",
+      "3:contactSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-Key": {
+    "endpoints": [
+      "1:doorLock"
+    ],
+    "options": [
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-Key-Generic": {
+    "endpoints": [
+      "1:doorLock"
+    ],
+    "options": [
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-Key-O": {
+    "endpoints": [
+      "1:doorLock"
+    ],
+    "options": [
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-Key-S": {
+    "endpoints": [
+      "1:doorLock"
+    ],
+    "options": [
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-MD": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-MDIR": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-MDIR-2": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-MDIR-3": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-RHS": {
+    "endpoints": [
+      "1:contactSensor+battery",
+      "2:contactSensor",
+      "3:contactSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-RHS-2": {
+    "endpoints": [
+      "1:contactSensor+battery",
+      "2:contactSensor",
+      "3:contactSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SC": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SC-2": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SCo": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SD": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SD-2": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SD-2-Generic": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SD-Generic": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-SFA-SM": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Sec-Sir-WM": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Sec-TiS": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-WDS": {
+    "endpoints": [
+      "1:waterLeakDetector+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-WDS-2": {
+    "endpoints": [
+      "1:waterLeakDetector+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sec-Win": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Sec-Win-Generic": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Sec-xx": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-DB-PCB": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-EP": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-LI-O": {
+    "endpoints": [
+      "1:lightSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-MDIR-O": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-MDIR-O-2": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-MDIR-O-3": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-MDIR-SM": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-MDIR-WM55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:occupancySensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-RD-O": {
+    "endpoints": [
+      "1:rainSensor",
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HM-Sen-Wa-Od": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sen-X": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-SwI-3-FM": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-SwI-X": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-Sys-sRP-Pl": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-TC-IT-WM-W-EU": {
+    "endpoints": [
+      "1:temperatureSensor+humidity",
+      "2:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HM-WDC7000": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS10-TH-O": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS100-C6-O": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS100-C6-O-2": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS20-TH-O": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS30-OT2-SM": {
+    "endpoints": [
+      "1:temperatureSensor+battery",
+      "2:temperatureSensor",
+      "3:temperatureSensor",
+      "4:temperatureSensor",
+      "5:temperatureSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS30-OT2-SM-2": {
+    "endpoints": [
+      "1:temperatureSensor+battery",
+      "2:temperatureSensor",
+      "3:temperatureSensor",
+      "4:temperatureSensor",
+      "5:temperatureSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS30-T-O": {
+    "endpoints": [
+      "1:temperatureSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS40-TH-I": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HM-WDS40-TH-I-2": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HMIP-PS": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMIP-PSM": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": [
+      "6:energy"
+    ]
+  },
+  "HMIP-SWDO": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HMIP-WRC2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HMW-IO-12-FM": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-IO-12-Sw14-DR": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit",
+      "6:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-IO-12-Sw7-DR": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:genericSwitch*",
+      "4:genericSwitch*",
+      "5:genericSwitch*",
+      "6:genericSwitch*",
+      "7:genericSwitch*",
+      "8:genericSwitch*",
+      "9:genericSwitch*",
+      "10:genericSwitch*",
+      "11:genericSwitch*",
+      "12:genericSwitch*",
+      "13:onOffPlugInUnit",
+      "14:onOffPlugInUnit",
+      "15:onOffPlugInUnit",
+      "16:onOffPlugInUnit",
+      "17:onOffPlugInUnit",
+      "18:onOffPlugInUnit",
+      "19:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-IO-4-FM": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-IO-SR-FM": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:genericSwitch*",
+      "4:genericSwitch*",
+      "5:genericSwitch*",
+      "6:genericSwitch*",
+      "7:onOffPlugInUnit",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit",
+      "12:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-LC-Bl1-DR": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-LC-Bl1-DR-2": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-LC-Dim1L-DR": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-LC-Sw2-DR": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-RCV-50": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-Sen-SC-12-DR": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:contactSensor",
+      "8:contactSensor",
+      "9:contactSensor",
+      "10:contactSensor",
+      "11:contactSensor",
+      "12:contactSensor"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HMW-Sen-SC-12-FM": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:contactSensor",
+      "8:contactSensor",
+      "9:contactSensor",
+      "10:contactSensor",
+      "11:contactSensor",
+      "12:contactSensor"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HSS-DX": {
+    "endpoints": [
+      "1:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-ASIR": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-ASIR-2": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-ASIR-O": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-BDT": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:dimmableLight",
+      "5:dimmableLight*",
+      "6:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-BRC2": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-BROLL": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:windowCovering",
+      "5:windowCovering*",
+      "6:windowCovering*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-BSL": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*",
+      "8:dimmableLight",
+      "9:dimmableLight*",
+      "10:dimmableLight*",
+      "12:dimmableLight",
+      "13:dimmableLight*",
+      "14:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-BSM": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": [
+      "7:energy"
+    ]
+  },
+  "HmIP-BWTH": {
+    "endpoints": [
+      "1:thermostat+humidity",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-CCU3": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DBB": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-DLD": {
+    "endpoints": [
+      "1:doorLock+battery"
+    ],
+    "options": [
+      "Battery",
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HmIP-DLP": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "4:onOffPlugInUnit+battery",
+      "5:onOffPlugInUnit",
+      "6:onOffPlugInUnit",
+      "7:onOffPlugInUnit",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit",
+      "12:doorLock"
+    ],
+    "options": [
+      "Battery",
+      "OpenOnUnlock"
+    ],
+    "unsupported": []
+  },
+  "HmIP-DLS": {
+    "endpoints": [
+      "1:doorLock+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-DRBLI4": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:contactSensor",
+      "8:contactSensor",
+      "10:windowCovering+tilt",
+      "11:windowCovering+tilt*",
+      "12:windowCovering+tilt*",
+      "14:windowCovering+tilt",
+      "15:windowCovering+tilt*",
+      "16:windowCovering+tilt*",
+      "18:windowCovering+tilt",
+      "19:windowCovering+tilt*",
+      "20:windowCovering+tilt*",
+      "22:windowCovering+tilt",
+      "23:windowCovering+tilt*",
+      "24:windowCovering+tilt*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DRDI3": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "5:dimmableLight",
+      "6:dimmableLight*",
+      "7:dimmableLight*",
+      "9:dimmableLight",
+      "10:dimmableLight*",
+      "11:dimmableLight*",
+      "13:dimmableLight",
+      "14:dimmableLight*",
+      "15:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DRG-DALI": {
+    "endpoints": [
+      "1:extendedColorLight",
+      "2:extendedColorLight",
+      "3:extendedColorLight",
+      "4:extendedColorLight",
+      "5:extendedColorLight",
+      "6:extendedColorLight",
+      "7:extendedColorLight",
+      "8:extendedColorLight",
+      "9:extendedColorLight",
+      "10:extendedColorLight",
+      "11:extendedColorLight",
+      "12:extendedColorLight",
+      "13:extendedColorLight",
+      "14:extendedColorLight",
+      "15:extendedColorLight",
+      "16:extendedColorLight",
+      "17:extendedColorLight",
+      "18:extendedColorLight",
+      "19:extendedColorLight",
+      "20:extendedColorLight",
+      "21:extendedColorLight",
+      "22:extendedColorLight",
+      "23:extendedColorLight",
+      "24:extendedColorLight",
+      "25:extendedColorLight",
+      "26:extendedColorLight",
+      "27:extendedColorLight",
+      "28:extendedColorLight",
+      "29:extendedColorLight",
+      "30:extendedColorLight",
+      "31:extendedColorLight",
+      "32:extendedColorLight",
+      "33:extendedColorLight",
+      "34:extendedColorLight",
+      "35:extendedColorLight",
+      "36:extendedColorLight",
+      "37:extendedColorLight",
+      "38:extendedColorLight",
+      "39:extendedColorLight",
+      "40:extendedColorLight",
+      "41:extendedColorLight",
+      "42:extendedColorLight",
+      "43:extendedColorLight",
+      "44:extendedColorLight",
+      "45:extendedColorLight",
+      "46:extendedColorLight",
+      "47:extendedColorLight",
+      "48:extendedColorLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DRSI1": {
+    "endpoints": [
+      "1:contactSensor",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DRSI4": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "6:onOffPlugInUnit",
+      "7:onOffPlugInUnit*",
+      "8:onOffPlugInUnit*",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*",
+      "14:onOffPlugInUnit",
+      "15:onOffPlugInUnit*",
+      "16:onOffPlugInUnit*",
+      "18:onOffPlugInUnit",
+      "19:onOffPlugInUnit*",
+      "20:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-DSD-PCB": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-ESI": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": [
+      "1:energy",
+      "2:energy",
+      "3:energy",
+      "4:energy"
+    ]
+  },
+  "HmIP-FAL230-C10": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FALMOT-C12": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FBL": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:windowCovering+tilt",
+      "5:windowCovering+tilt*",
+      "6:windowCovering+tilt*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FCI1": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-FDT": {
+    "endpoints": [
+      "2:dimmableLight",
+      "3:dimmableLight*",
+      "4:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FROLL": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:windowCovering",
+      "5:windowCovering*",
+      "6:windowCovering*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FSI16": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-FSM16": {
+    "endpoints": [
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit*",
+      "4:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": [
+      "5:energy"
+    ]
+  },
+  "HmIP-FWI": {
+    "endpoints": [
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-HAP": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-HDM1": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-HDM2": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-HEATING": {
+    "endpoints": [
+      "1:thermostat+battery+humidity",
+      "3:contactSensor",
+      "5:genericSwitch*"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-KRC4": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-KRCA": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-LSC": {
+    "endpoints": [
+      "1:extendedColorLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-MIO16-PCB": {
+    "endpoints": [
+      "13:contactSensor",
+      "14:contactSensor",
+      "15:contactSensor",
+      "16:contactSensor",
+      "18:onOffPlugInUnit",
+      "19:onOffPlugInUnit*",
+      "20:onOffPlugInUnit*",
+      "22:onOffPlugInUnit",
+      "23:onOffPlugInUnit*",
+      "24:onOffPlugInUnit*",
+      "26:onOffPlugInUnit",
+      "27:onOffPlugInUnit*",
+      "28:onOffPlugInUnit*",
+      "30:onOffPlugInUnit",
+      "31:onOffPlugInUnit*",
+      "32:onOffPlugInUnit*",
+      "34:onOffPlugInUnit",
+      "35:onOffPlugInUnit*",
+      "36:onOffPlugInUnit*",
+      "38:onOffPlugInUnit",
+      "39:onOffPlugInUnit*",
+      "40:onOffPlugInUnit*",
+      "42:onOffPlugInUnit",
+      "43:onOffPlugInUnit*",
+      "44:onOffPlugInUnit*",
+      "46:onOffPlugInUnit",
+      "47:onOffPlugInUnit*",
+      "48:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-MOD-HO": {
+    "endpoints": [
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "1:garage"
+    ]
+  },
+  "HmIP-MOD-OC8": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:genericSwitch*",
+      "4:genericSwitch*",
+      "5:genericSwitch*",
+      "6:genericSwitch*",
+      "7:genericSwitch*",
+      "8:genericSwitch*",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*",
+      "14:onOffPlugInUnit",
+      "15:onOffPlugInUnit*",
+      "16:onOffPlugInUnit*",
+      "18:onOffPlugInUnit",
+      "19:onOffPlugInUnit*",
+      "20:onOffPlugInUnit*",
+      "22:onOffPlugInUnit",
+      "23:onOffPlugInUnit*",
+      "24:onOffPlugInUnit*",
+      "26:onOffPlugInUnit",
+      "27:onOffPlugInUnit*",
+      "28:onOffPlugInUnit*",
+      "30:onOffPlugInUnit",
+      "31:onOffPlugInUnit*",
+      "32:onOffPlugInUnit*",
+      "34:onOffPlugInUnit",
+      "35:onOffPlugInUnit*",
+      "36:onOffPlugInUnit*",
+      "38:onOffPlugInUnit",
+      "39:onOffPlugInUnit*",
+      "40:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-MOD-RC8": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-MOD-TM": {
+    "endpoints": [
+      "2:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": [
+      "1:garage"
+    ]
+  },
+  "HmIP-MP3P": {
+    "endpoints": [
+      "6:dimmableLight+battery",
+      "7:dimmableLight*",
+      "8:dimmableLight*"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-PCBS": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-PCBS-BAT": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit+battery",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-PCBS2": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit*",
+      "10:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-PDT": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:dimmableLight",
+      "4:dimmableLight*",
+      "5:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-PMFS": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-PSMCO": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": [
+      "6:energy"
+    ]
+  },
+  "HmIP-RC8": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-RCB1": {
+    "endpoints": [
+      "1:genericSwitch+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-RCV-50": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch",
+      "17:genericSwitch",
+      "18:genericSwitch",
+      "19:genericSwitch",
+      "20:genericSwitch",
+      "21:genericSwitch",
+      "22:genericSwitch",
+      "23:genericSwitch",
+      "24:genericSwitch",
+      "25:genericSwitch",
+      "26:genericSwitch",
+      "27:genericSwitch",
+      "28:genericSwitch",
+      "29:genericSwitch",
+      "30:genericSwitch",
+      "31:genericSwitch",
+      "32:genericSwitch",
+      "33:genericSwitch",
+      "34:genericSwitch",
+      "35:genericSwitch",
+      "36:genericSwitch",
+      "37:genericSwitch",
+      "38:genericSwitch",
+      "39:genericSwitch",
+      "40:genericSwitch",
+      "41:genericSwitch",
+      "42:genericSwitch",
+      "43:genericSwitch",
+      "44:genericSwitch",
+      "45:genericSwitch",
+      "46:genericSwitch",
+      "47:genericSwitch",
+      "48:genericSwitch",
+      "49:genericSwitch",
+      "50:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-RFUSB": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-RGBW": {
+    "endpoints": [
+      "1:extendedColorLight",
+      "2:extendedColorLight",
+      "3:extendedColorLight",
+      "4:extendedColorLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-SAM": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SCI": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SCTH230": {
+    "endpoints": [
+      "1:airQualitySensor",
+      "4:temperatureSensor+humidity",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit*",
+      "10:onOffPlugInUnit*",
+      "12:dimmableLight",
+      "13:dimmableLight*",
+      "14:dimmableLight*"
+    ],
+    "options": [
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SFD": {
+    "endpoints": [
+      "1:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SLO": {
+    "endpoints": [
+      "1:lightSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMI": {
+    "endpoints": [
+      "1:occupancySensor+battery+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMI55": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:occupancySensor+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMO": {
+    "endpoints": [
+      "1:occupancySensor+battery+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMO-2": {
+    "endpoints": [
+      "1:occupancySensor+battery+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMO-A": {
+    "endpoints": [
+      "1:occupancySensor+battery+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SMO230-A": {
+    "endpoints": [
+      "1:occupancySensor+illuminance",
+      "2:occupancySensor+illuminance",
+      "3:occupancySensor+illuminance",
+      "4:occupancySensor+illuminance",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SPDR": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SPI": {
+    "endpoints": [
+      "1:occupancySensor+battery+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SRD": {
+    "endpoints": [
+      "1:rainSensor"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-SRH": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STE2-PCB": {
+    "endpoints": [
+      "1:temperatureSensor+battery",
+      "2:temperatureSensor",
+      "3:temperatureSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STH": {
+    "endpoints": [
+      "1:thermostat+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STHD": {
+    "endpoints": [
+      "1:thermostat+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STHO": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STHO-A": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "HmIP-STV": {
+    "endpoints": [
+      "1:occupancySensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWD": {
+    "endpoints": [
+      "1:waterLeakDetector+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWDM": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWDM-B2": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWDO-I": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWO-B": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWO-PL": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWO-PR": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWSD": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-SWSD-2": {
+    "endpoints": [
+      "1:smokeCoAlarm+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-UDI-SMI55": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "2:genericSwitch*",
+      "3:genericSwitch*",
+      "4:occupancySensor+illuminance",
+      "7:dimmableLight",
+      "8:dimmableLight*",
+      "9:dimmableLight*"
+    ],
+    "options": [
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIP-USBSM": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": [
+      "6:energy"
+    ]
+  },
+  "HmIP-WGC": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "3:onOffPlugInUnit+battery",
+      "4:onOffPlugInUnit*",
+      "5:onOffPlugInUnit*"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WGTC": {
+    "endpoints": [
+      "1:genericSwitch*",
+      "4:onOffPlugInUnit",
+      "5:onOffPlugInUnit*",
+      "6:onOffPlugInUnit*",
+      "8:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WHS2": {
+    "endpoints": [
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit*",
+      "4:onOffPlugInUnit*",
+      "6:onOffPlugInUnit",
+      "7:onOffPlugInUnit*",
+      "8:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIP-WKP": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WRC6": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WRCD": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WRCR": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WTH-1": {
+    "endpoints": [
+      "1:thermostat+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-WTH-2": {
+    "endpoints": [
+      "1:thermostat+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-2": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-2 I9F": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-B": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-B-2 R4M": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-B1": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-C-2": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-E": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIP-eTRV-F": {
+    "endpoints": [
+      "1:thermostat+battery"
+    ],
+    "options": [
+      "Battery",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-DRAP": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-DRBL4": {
+    "endpoints": [
+      "2:windowCovering+tilt",
+      "3:windowCovering+tilt*",
+      "4:windowCovering+tilt*",
+      "6:windowCovering+tilt",
+      "7:windowCovering+tilt*",
+      "8:windowCovering+tilt*",
+      "10:windowCovering+tilt",
+      "11:windowCovering+tilt*",
+      "12:windowCovering+tilt*",
+      "14:windowCovering+tilt",
+      "15:windowCovering+tilt*",
+      "16:windowCovering+tilt*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-DRD3": {
+    "endpoints": [
+      "2:dimmableLight",
+      "3:dimmableLight*",
+      "4:dimmableLight*",
+      "6:dimmableLight",
+      "7:dimmableLight*",
+      "8:dimmableLight*",
+      "10:dimmableLight",
+      "11:dimmableLight*",
+      "12:dimmableLight*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-DRI16": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:contactSensor",
+      "8:contactSensor",
+      "9:contactSensor",
+      "10:contactSensor",
+      "11:contactSensor",
+      "12:contactSensor",
+      "13:contactSensor",
+      "14:contactSensor",
+      "15:contactSensor",
+      "16:contactSensor"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-DRI32": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "7:contactSensor",
+      "8:contactSensor",
+      "9:contactSensor",
+      "10:contactSensor",
+      "11:contactSensor",
+      "12:contactSensor",
+      "13:contactSensor",
+      "14:contactSensor",
+      "15:contactSensor",
+      "16:contactSensor",
+      "17:contactSensor",
+      "18:contactSensor",
+      "19:contactSensor",
+      "20:contactSensor",
+      "21:contactSensor",
+      "22:contactSensor",
+      "23:contactSensor",
+      "24:contactSensor",
+      "25:contactSensor",
+      "26:contactSensor",
+      "27:contactSensor",
+      "28:contactSensor",
+      "29:contactSensor",
+      "30:contactSensor",
+      "31:contactSensor",
+      "32:contactSensor"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-DRS8": {
+    "endpoints": [
+      "2:onOffPlugInUnit",
+      "3:onOffPlugInUnit*",
+      "4:onOffPlugInUnit*",
+      "6:onOffPlugInUnit",
+      "7:onOffPlugInUnit*",
+      "8:onOffPlugInUnit*",
+      "10:onOffPlugInUnit",
+      "11:onOffPlugInUnit*",
+      "12:onOffPlugInUnit*",
+      "14:onOffPlugInUnit",
+      "15:onOffPlugInUnit*",
+      "16:onOffPlugInUnit*",
+      "18:onOffPlugInUnit",
+      "19:onOffPlugInUnit*",
+      "20:onOffPlugInUnit*",
+      "22:onOffPlugInUnit",
+      "23:onOffPlugInUnit*",
+      "24:onOffPlugInUnit*",
+      "26:onOffPlugInUnit",
+      "27:onOffPlugInUnit*",
+      "28:onOffPlugInUnit*",
+      "30:onOffPlugInUnit",
+      "31:onOffPlugInUnit*",
+      "32:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-FAL230-C6": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-FALMOT-C12": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-FIO6": {
+    "endpoints": [
+      "1:contactSensor",
+      "2:contactSensor",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:contactSensor",
+      "6:contactSensor",
+      "8:onOffPlugInUnit",
+      "9:onOffPlugInUnit*",
+      "10:onOffPlugInUnit*",
+      "12:onOffPlugInUnit",
+      "13:onOffPlugInUnit*",
+      "14:onOffPlugInUnit*",
+      "16:onOffPlugInUnit",
+      "17:onOffPlugInUnit*",
+      "18:onOffPlugInUnit*",
+      "20:onOffPlugInUnit",
+      "21:onOffPlugInUnit*",
+      "22:onOffPlugInUnit*",
+      "24:onOffPlugInUnit",
+      "25:onOffPlugInUnit*",
+      "26:onOffPlugInUnit*",
+      "28:onOffPlugInUnit",
+      "29:onOffPlugInUnit*",
+      "30:onOffPlugInUnit*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-SCTHD": {
+    "endpoints": [
+      "1:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-SMI55": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:occupancySensor+illuminance"
+    ],
+    "options": [
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-SPI": {
+    "endpoints": [
+      "1:occupancySensor+illuminance"
+    ],
+    "options": [
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-STH": {
+    "endpoints": [
+      "1:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-STHD": {
+    "endpoints": [
+      "1:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "HmIPW-WRC6": {
+    "endpoints": [
+      "1:genericSwitch",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "HmIPW-WTH": {
+    "endpoints": [
+      "1:thermostat+humidity"
+    ],
+    "options": [
+      "Humidity",
+      "Boost"
+    ],
+    "unsupported": []
+  },
+  "IS-WDS-TH-OD-S-R3": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "KS550": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "KS550LC": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "KS550Tech": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "KS888": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "OLIGO.smart.iq.HM": {
+    "endpoints": [
+      "1:dimmableLight",
+      "2:dimmableLight",
+      "3:dimmableLight",
+      "4:dimmableLight",
+      "5:dimmableLight",
+      "6:dimmableLight"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "RC-H": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "RPI-RF-MOD": {
+    "endpoints": [],
+    "options": [],
+    "unsupported": []
+  },
+  "S550IA": {
+    "endpoints": [
+      "1:temperatureSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ST6-SH": {
+    "endpoints": [
+      "1:onOffPlugInUnit",
+      "2:onOffPlugInUnit",
+      "3:contactSensor",
+      "4:contactSensor",
+      "5:genericSwitch*",
+      "6:genericSwitch*",
+      "7:genericSwitch*",
+      "8:genericSwitch*",
+      "9:genericSwitch*"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "WDF solar": {
+    "endpoints": [
+      "1:windowCovering",
+      "2:windowCovering",
+      "3:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "WS550": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "WS550LCB": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "WS550LCW": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "WS550Tech": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "WS888": {
+    "endpoints": [
+      "1:temperatureSensor+battery+humidity+illuminance",
+      "2:temperatureSensor+humidity+illuminance",
+      "3:temperatureSensor+humidity+illuminance",
+      "4:temperatureSensor+humidity+illuminance",
+      "5:temperatureSensor+humidity+illuminance",
+      "6:temperatureSensor+humidity+illuminance",
+      "7:temperatureSensor+humidity+illuminance",
+      "8:temperatureSensor+humidity+illuminance",
+      "10:temperatureSensor+humidity"
+    ],
+    "options": [
+      "Battery",
+      "Humidity",
+      "Illuminance"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM DWT 10": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch",
+      "5:genericSwitch",
+      "6:genericSwitch",
+      "7:genericSwitch",
+      "8:genericSwitch",
+      "9:genericSwitch",
+      "10:genericSwitch",
+      "11:genericSwitch",
+      "12:genericSwitch",
+      "13:genericSwitch",
+      "14:genericSwitch",
+      "15:genericSwitch",
+      "16:genericSwitch",
+      "17:genericSwitch",
+      "18:genericSwitch",
+      "19:genericSwitch",
+      "20:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FDK": {
+    "endpoints": [
+      "1:contactSensor+battery",
+      "2:contactSensor",
+      "3:contactSensor"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FEP 230V": {
+    "endpoints": [
+      "1:windowCovering"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "ZEL STG RM FFK": {
+    "endpoints": [
+      "1:contactSensor+battery"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FSA": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FSS UP3": {
+    "endpoints": [],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FST UP4": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FWT": {
+    "endpoints": [
+      "1:temperatureSensor+humidity",
+      "2:thermostat"
+    ],
+    "options": [
+      "Humidity"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM FZS": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "ZEL STG RM FZS-2": {
+    "endpoints": [
+      "1:onOffPlugInUnit"
+    ],
+    "options": [],
+    "unsupported": []
+  },
+  "ZEL STG RM HS 4": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch",
+      "4:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "ZEL STG RM WT 2": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  },
+  "atent": {
+    "endpoints": [
+      "1:genericSwitch+battery",
+      "2:genericSwitch",
+      "3:genericSwitch"
+    ],
+    "options": [
+      "Battery"
+    ],
+    "unsupported": []
+  }
+}

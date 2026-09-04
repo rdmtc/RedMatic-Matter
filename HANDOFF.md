@@ -1,66 +1,120 @@
-# Handoff — RedMatic-Matter (2026-09-02, planning session)
+# Handoff — RedMatic-Matter (2026-09-04, first implementation session)
 
-Written by Claude Fable on behalf of hobbyquaker. Nothing is implemented;
-`ROADMAP.md` is the whole deliverable of this session and the place to read
-first (decisions D-1…D-15, open questions OQ-1…OQ-11, tasks 6–16, research
-in appendix A).
+Written by Claude Fable on behalf of hobbyquaker. Read `ROADMAP.md` first
+(status paragraph, decisions D-1…D-19, tasks 6–16); `AGENTS.md` explains
+the layout. Lab systems, addresses and credentials stay out of this file.
 
-## What happened
+## Where things stand
 
-- The maintainer decided against continuing `../hm2matter` (standalone CCU
-  addon) and started this project: Node-RED nodes mirroring
-  RedMatic-HomeKit's node set and UX, on matter.js, fed by
-  node-red-contrib-ccu, installed through the palette manager on RedMatic 9.
-- Two constraints were stated during the session and are decisions now:
-  **no matterbridge in any form** (D-1; matterbridge-homematic was mined for
-  mapping knowledge only, section 1 of the roadmap lists what was taken) and
-  **coexistence with RedMatic-HomeKit in one Node-RED process on one CCU**
-  (D-5; all three mDNS responders bind 5353 with `SO_REUSEADDR`, verified in
-  the three code bases; Homebridge ≥ 2.2 runs the same pairing).
-- Verified on this Mac (Node 24.20, matter.js 0.17.9 from
-  `../hm2matter/node_modules`): CommonJS `require('@matter/main')` and its
-  subpaths work; zero native modules; 137 MB / 26 600 files footprint.
-- Web research (two agents) is condensed in roadmap appendix A: versions,
-  multi-ServerNode-per-process (verified), storage layout, mDNS socket
-  behaviour, deprecated `context.offline`, command-handler pattern, Apple
-  Home's unsupported device types, Alexa's port-5540/50-device limits,
-  existing Node-RED Matter packages and their issue trackers.
+`master` is at **1.0.0-dev.0**: everything in ROADMAP tasks 6–11 is
+**implemented and green** (`npm test`: lint, 45 unit tests against real
+matter.js ServerNodes, native scan) but **nothing has run on a CCU or
+against a Matter controller yet** — that is task 15 and the next thing to
+do. No tag, no npm publish; the npm trusted publisher for
+`rdmtc/RedMatic-Matter` → `release.yml` still has to be configured by the
+maintainer.
 
-## Decisions the maintainer gave at the end of the session (2026-09-02)
+What exists (one `.js` + `.html` per node under `nodes/`, the Matter and
+Homematic layers under `nodes/lib/`):
 
-- Opt-in device list (OQ-1 → D-7 stands).
-- RedMatic's start script creates the CCU3's IPv6 link-local; the node only
-  checks and warns (OQ-7 → D-14; needs a RedMatic roadmap task).
-- Apache-2.0, `1.0.0-dev.N` on master, `redmatic-matter` /
-  `rdmtc/RedMatic-Matter` (D-12, D-13).
-- Release targets 1.0.0: Apple Home **and Alexa**; Home Assistant as the
-  diagnostic controller, Google later (OQ-8).
-- No garage and no irrigation node (D-16): both stay on RedMatic-HomeKit,
-  which is why the two packages must run side by side (the maintainer's
-  garage door with its CarPlay prompt lives there).
+- `matter.js` — lazy matter.js loader (storage root `<userDir>/matter`),
+  `MatterBridge` (ServerNode + aggregator per bridge config node, module
+  registry keyed by bridge id so deploys keep the node, holds/timeouts so
+  the node goes online only after every feeder added its endpoints, IPv6
+  and UDP-port pre-flight, pairing codes, fabric list, remove fabric, open
+  commissioning window, factory reset), `Device` handles (pending-state
+  shadow, `set()`, `onChange` with actor context, `onCommand`).
+- `devices.js` — 22 Matter device types with the feature/attribute choices
+  that make matter.js 0.17.9 initialise them (every combination is
+  instantiated in `test/matter.test.js`); options battery/wired/humidity/
+  illuminance/tilt compose extra clusters and are part of the identity key.
+- `commands.js` — command hooks for door lock, window covering, thermostat
+  and identify; each override does `await transaction.addResources(this);
+await transaction.begin()` before calling matter.js (D-19).
+- `mapping.js` + `hm-device.js` + `catalogue.js` — the Homematic mapping
+  (roles from HomeKit's `roles.js`), the runtime loop and the editor list.
+- Nodes: bridge (dialog with QR, code, fabrics, buttons, polling every 3 s),
+  switch, pseudobutton, programmable switch, universal, homematic.
+- Tests: `test/matter.test.js`, `nodes.test.js`, `hm-device.test.js`,
+  `mapping.test.js`, `roles.test.js`, `catalogue.test.js`; 385 fixtures
+  copied from RedMatic-HomeKit with `roles.snapshot.json` (identical to
+  HomeKit's) and `mapping.snapshot.json`.
+
+## What this session found out (details in ROADMAP appendix A, 2026-09-04)
+
+- `hm2matter` is **not on this machine** (it only ever lived on the Mac);
+  task 7 was therefore written from the roadmap's specification against
+  the real matter.js API instead of ported. Nothing of hm2matter's code is
+  needed any more; its hardware findings are in the roadmap.
+- matter.js 0.17.9 API facts that cost time: `WindowCoveringDevice`,
+  `ThermostatDevice` and `GenericSwitchDevice` carry only `identify` by
+  default — their cluster server must be given explicitly with features;
+  `DoorLockDevice`'s default server enables every credential feature (use
+  `DoorLockServer.with()`); colour lights need `colorMode` and
+  `enhancedColorMode`; `goToLiftPercentage` takes `liftPercent100thsValue`;
+  `openBasicCommissioningWindow`/`removeFabric` need a remote session, so
+  the dialog uses `agent.commissioning.enterCommissionableMode()` and
+  `Fabric.leave()`; `ServerNode.erase()` leaves sockets and the storage
+  lock open afterwards, so factory reset closes the node, removes
+  `<storage>/<bridge id>` and starts again.
+- A `set()` on an endpoint holds its state lock for tens of milliseconds
+  (storage write); matter.js' default command handlers lock synchronously
+  and fail in that window — hence D-19.
 
 ## Next steps (roadmap order)
 
-1. Task 6 — skeleton and tooling copied from `../RedMatic-HomeKit`
-   (`check-native.js` needs the `@matter/nodejs` optionalDependency
-   allowlist).
-2. Task 7 — port `../hm2matter/lib/{matter,matter-devices,bridge}.js` and
-   `lib/mapping/` to CommonJS under `nodes/lib/`, replace `context.offline`
-   with `hasLocalActor()` from `@matter/main/protocol`, add the command
-   handlers hm2matter left open, test with real ServerNodes.
-3. Tasks 8–10 — the nodes, in that order; the homematic node reuses
-   HomeKit's `lib/roles.js`, catalogue endpoint and device-list html.
+1. **Task 15, hardware gate.** Palette install on the OpenCCU box and on
+   real CCU3 hardware (install time and disk for OQ-6), then
+   `tools/smoke-local.sh`-style checks on the box, then commission from
+   Home Assistant, Apple Home and Alexa. The RedMatic-HomeKit handoff and
+   the maintainer's `~/hk-lab/` scripts hold the box recipes. Expect the
+   first real-controller run to surface conformance details this session
+   could not (no controller here).
+2. **Task 13, RedMatic IPv6.** RedMatic 9.0.0 shipped **without** the
+   CCU3 IPv6 link-local fix (`bin/redmatic`, hm2matter M-13); on a CCU3
+   with original firmware the bridge will show the red "no IPv6 address"
+   status until that lands. File it in `../RedMatic/ROADMAP.md`.
+3. **Task 14 leftovers**: `locales/` with English help, wiki page,
+   `device-support.md` after task 15.
+4. **Task 16** items that became cheap: `piHeatingDemand` from valve
+   levels, energy measurement, colour lights on real hardware (HmIP-RGBW).
 
-## Reference material outside this repo
+## Working here
 
-- `../hm2matter` (archived, D-15): `ROADMAP.md` §1–§6 for the hardware
-  findings (IPv6 on the CCU3, 5353 sharing, RAM), `test/` as the porting
-  checklist, `paramsets.json` (2222 descriptions).
-- `../RedMatic-HomeKit`: everything user-facing, `test/fixtures/devices/`
-  (383 pydevccu fixtures), `test/helpers/`, CI and release workflows.
-- matterbridge-homematic: `git clone --depth 30
-  https://github.com/hobbyquaker/matterbridge-homematic` — `device-support.md`,
-  ROADMAP items FIX-0, HM-9, HM-8, UX-2, RN-0, `src/ccu/device-power.ts`.
-- Test hosts: OpenCCU box 172.16.23.119 (RedMatic 9.0.0-dev.11, HomeKit
-  4.0.0-dev.7 installed), see `../RedMatic-HomeKit/HANDOFF.md` for access
-  and the admin-API install recipe.
+```
+git clone git@github.com:rdmtc/RedMatic-Matter.git && cd RedMatic-Matter
+npm ci
+npm test               # lint + unit tests + native scan (must be green before every commit)
+npm run format         # prettier + eslint --fix
+tools/smoke-local.sh   # packs, installs shallowly into a fresh Node-RED 5, brings a bridge online
+UPDATE_SNAPSHOT=1 node --test test/roles.test.js test/mapping.test.js
+                       # after an intentional mapping change (review the diff first)
+MATTER_TEST_LOG=1 node --test test/matter.test.js   # bridge log lines during tests
+```
+
+Versioning: `npm version 1.0.0-dev.N --no-git-tag-version` for every
+significant change, commit message `1.0.0-dev.N: …`, push. Commits end
+with the `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>` line.
+
+The tests bind real UDP ports (ranges spread by pid) and need an IPv6
+address on the host. On this machine the work happens in WSL (Debian, Node
+24.16); never through PowerShell.
+
+## Gotchas
+
+- Endpoint id = `<owner id>~<device type key>`; the owner id is the CCU
+  channel address or `<node id>/<index>`. Changing a channel's type in the
+  editor gives it a new identity on purpose (D-8/D-17).
+- `bridge.device(spec)` returns the existing `Device` for the same id and
+  detaches the previous listeners — a redeployed node re-attaches by
+  calling it again. `removeDevice(id, {erase})`: `erase: true` only when
+  the node was deleted or the device unticked.
+- The homematic node holds the bridge (`bridge.hold()`) until the ccu
+  device list settled and its endpoints exist; the bridge starts anyway
+  after 90 s and logs a warning.
+- HmIP `<X>_VIRTUAL_RECEIVER` channels are write targets; state is read
+  from the preceding `<X>_TRANSMITTER` (`lib/state-source.js`).
+- matter.js command handlers must not throw synchronously; the notify
+  hook in `commands.js` catches handler errors.
+- `Logger.level` of matter.js is set to WARN once at load; set
+  `logLevel` in the bridge options for more.

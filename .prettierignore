@@ -1,0 +1,7 @@
+node_modules
+coverage
+package-lock.json
+nodes/**/*.html
+nodes/locales
+test/fixtures
+roadmap-archive

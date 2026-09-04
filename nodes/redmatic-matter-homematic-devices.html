@@ -1,0 +1,321 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-matter-homematic-devices', {
+        category: 'redmatic matter',
+        defaults: {
+            name: {value: ''},
+            ccuConfig: {value: '', type: 'ccu-connection', required: true},
+            bridgeConfig: {value: '', type: 'redmatic-matter-bridge', required: true},
+            devices: {value: {}}
+        },
+        inputs: 0,
+        outputs: 0,
+        icon: 'matter.svg',
+        color: '#E2D96E',
+        paletteLabel: 'homematic',
+        align: 'left',
+        label() {
+            return this.name || 'homematic';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        },
+        oneditprepare() {
+            const that = this;
+            const LIMITS = [{n: 50, who: 'Alexa'}, {n: 150, who: 'Apple Home'}];
+            if (!this.devices) {
+                this.devices = {};
+            }
+
+            function escape(text) {
+                return $('<div>').text(String(text)).html();
+            }
+
+            function entry(addr) {
+                if (!that.devices[addr]) {
+                    that.devices[addr] = {};
+                }
+                return that.devices[addr];
+            }
+
+            function dropdownHtml(ch, dropdowns) {
+                let html = '';
+                Object.keys(dropdowns || {}).forEach(option => {
+                    const selected = entry(ch)[option];
+                    html += '<select class="small channel-option" data-addr="' + ch + '" data-option="' + option + '">';
+                    dropdowns[option].forEach(val => {
+                        html += '<option' + (selected === val ? ' selected' : '') + '>' + escape(val) + '</option>';
+                    });
+                    html += '</select>';
+                });
+                return html;
+            }
+
+            function channelRow(addr, ch, name, cls, extra, html) {
+                return '<tr class="device-options" data-addr="' + addr + '"><td></td><td class="text small">' +
+                    '<input class="device-enabled ' + cls + '" data-addr="' + ch + '" type="checkbox">' +
+                    escape(name) + '</td><td class="text small">' + escape(ch) + '</td><td class="text small">' + escape(extra) + '</td><td class="text small">' + html + '</td></tr>';
+            }
+
+            function addDevice(dev) {
+                const addr = dev.address;
+                const checked = Boolean(entry(addr).enabled);
+                const unsupported = !dev.supported;
+                const rowClass = unsupported ? ' class="unsupported"' : '';
+                const info = unsupported ? ' <span class="small">(' + (dev.error ? 'error: ' + escape(dev.error) : 'no Matter equivalent') + ')</span>' : (dev.optIn ? ' <span class="small">(opt-in)</span>' : '');
+                $('#devices').append('<tr' + rowClass + '><td class="enabled">' + (unsupported ? '' : '<input class="device-enabled option-hide" data-addr="' + addr + '" type="checkbox"' + (checked ? ' checked' : '') + '>') + '</td><td class="text">' + escape(dev.name) + info + '</td><td class="text small">' + escape(addr) + '</td><td class="text small">' + escape(dev.type) + '</td><td class="text small">' + escape(dev.iface) + '</td></tr>');
+
+                dev.options.forEach(option => {
+                    const ch = addr + ':' + option;
+                    const optIn = option === 'Boost';
+                    const $row = $(channelRow(addr, ch, option, optIn ? 'vchannel-enabled' : 'channel-enabled', 'option', ''));
+                    $row.find('input').prop('checked', optIn ? Boolean(entry(ch).enabled) : !entry(ch).disabled);
+                    $('#devices').append($row);
+                });
+
+                dev.channels.forEach(channel => {
+                    const ch = channel.address;
+                    const html = dropdownHtml(ch, channel.dropdowns);
+                    const label = channel.matterType + (channel.battery ? ' + battery' : '');
+                    if (channel.optIn) {
+                        const $row = $(channelRow(addr, ch, channel.name, 'vchannel-enabled', label, html));
+                        $row.find('input').prop('checked', Boolean(entry(ch).enabled));
+                        $('#devices').append($row);
+                    } else {
+                        const $row = $(channelRow(addr, ch, channel.name, 'channel-enabled', label, html));
+                        $row.find('input').prop('checked', !entry(ch).disabled);
+                        $('#devices').append($row);
+                    }
+                });
+
+                (dev.unsupported || []).forEach(u => {
+                    $('#devices').append('<tr class="device-options unsupported" data-addr="' + addr + '"><td></td><td class="text small">' + escape(u.name) + '</td><td class="text small">' + escape(u.address) + '</td><td class="text small">' + escape(u.channelType) + '</td><td class="text small">' + escape(u.reason) + '</td></tr>');
+                });
+            }
+
+            function count() {
+                let endpoints = 0;
+                $('.option-hide:checked').each(function () {
+                    const addr = $(this).data('addr');
+                    $('.device-options[data-addr="' + addr + '"] .device-enabled:checked').each(function () {
+                        if (!/^[^:]+:(Battery|Humidity|Illuminance|OpenOnUnlock)$/.test($(this).data('addr'))) {
+                            endpoints++;
+                        }
+                    });
+                });
+                let text = endpoints + ' Endpunkte ausgewählt';
+                LIMITS.forEach(l => {
+                    if (endpoints > l.n) {
+                        text += ' – mehr als ' + l.n + ' (' + l.who + ')';
+                    }
+                });
+                $('#matter-count').text(text).toggleClass('warn', endpoints > LIMITS[0].n);
+            }
+
+            function filter() {
+                const q = String($('#matter-search').val() || '').toLowerCase();
+                $('#devices tr').each(function () {
+                    const $tr = $(this);
+                    if ($tr.hasClass('device-options')) {
+                        return;
+                    }
+                    const match = !q || $tr.text().toLowerCase().includes(q);
+                    $tr.toggle(match);
+                    const addr = $tr.find('.option-hide').data('addr');
+                    if (addr) {
+                        $('.device-options[data-addr="' + addr + '"]').toggle(match && $tr.find('.option-hide').is(':checked'));
+                    }
+                });
+            }
+
+            if (this.ccuConfig && this.ccuConfig !== '_ADD_') {
+                $('#spinner').show();
+                $('.config').hide();
+                $.getJSON('redmatic-matter/homematic-devices?config=' + this.ccuConfig + '&node=' + this.id, devices => {
+                    devices.forEach(addDevice);
+                    $('.option-hide').each(function () {
+                        $(this).change(function () {
+                            const addr = $(this).data('addr');
+                            $('.device-options[data-addr="' + addr + '"]').toggle($(this).is(':checked'));
+                            count();
+                        }).trigger('change');
+                    });
+                    $('.device-enabled').change(count);
+                    $('#spinner').hide();
+                    $('.config').show();
+                    count();
+                }).fail(() => {
+                    $('#spinner').hide();
+                    $('#devices').html('<tr><td>CCU-Verbindung nicht bereit – zuerst den CCU-Konfigurationsknoten deployen</td></tr>');
+                    $('.config').show();
+                });
+            }
+
+            $('#disable-all').click(() => {
+                $('.option-hide:visible').prop('checked', false).trigger('change');
+            });
+            $('#enable-all').click(() => {
+                $('.option-hide:visible').prop('checked', true).trigger('change');
+            });
+            $('#matter-search').on('input', filter);
+        },
+        oneditsave() {
+            const devices = {};
+            $('.channel-option').each(function () {
+                const addr = $(this).data('addr');
+                const option = $(this).data('option');
+                if (!devices[addr]) {
+                    devices[addr] = {};
+                }
+                devices[addr][option] = $(this).val();
+            });
+            // devices: opt-in (stored as enabled: true), channels: opt-out (disabled: true)
+            $('.option-hide').each(function () {
+                const addr = $(this).data('addr');
+                if (!devices[addr]) {
+                    devices[addr] = {};
+                }
+                devices[addr].enabled = $(this).is(':checked');
+            });
+            $('.device-enabled.channel-enabled').each(function () {
+                const addr = $(this).data('addr');
+                const enabled = $(this).is(':checked');
+                if (enabled && devices[addr]) {
+                    devices[addr].disabled = false;
+                } else if (!enabled) {
+                    if (!devices[addr]) {
+                        devices[addr] = {};
+                    }
+                    devices[addr].disabled = true;
+                }
+            });
+            $('.device-enabled.vchannel-enabled').each(function () {
+                const addr = $(this).data('addr');
+                const enabled = $(this).is(':checked');
+                if (!enabled && devices[addr]) {
+                    devices[addr].enabled = false;
+                } else if (enabled) {
+                    if (!devices[addr]) {
+                        devices[addr] = {};
+                    }
+                    devices[addr].enabled = true;
+                }
+            });
+            // keep settings of devices that were not listed this time (e.g. CCU
+            // temporarily without that interface) instead of dropping them
+            Object.keys(this.devices || {}).forEach(addr => {
+                if (!devices[addr]) {
+                    devices[addr] = this.devices[addr];
+                }
+            });
+            this.devices = devices;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-matter-homematic-devices">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ccuConfig"><i class="fa fa-server"></i> CCU</label>
+        <input type="text" id="node-input-ccuConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="fa fa-sitemap"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <style>
+        #devices {
+            width: 100%;
+        }
+        #devices td.text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #devices td.small {
+            max-width: 110px;
+            font-size: 10px;
+        }
+        #devices td.enabled {
+            width: 16px;
+            display: block;
+            margin-top: -2px;
+        }
+        #devices tr.unsupported {
+            color: #999;
+        }
+        .channel-enabled, .vchannel-enabled {
+            width: 11px !important;
+            margin-top: -1px !important;
+            margin-right: 2px !important;
+        }
+        select.small {
+            width: 100%;
+            height: auto;
+            padding: 0;
+            font-size: 9px;
+        }
+        #matter-count {
+            margin-left: 12px;
+            font-size: 0.9em;
+        }
+        #matter-count.warn {
+            color: #c60;
+            font-weight: bold;
+        }
+        #matter-search {
+            width: 40%;
+            margin-left: 12px;
+        }
+    </style>
+    <div class="form-row">
+        <div style="width: 100%; display: flex">
+            <img id="spinner" src="red/images/spin.svg" style="margin: auto; display: none;">
+        </div>
+        <div class="config" style="width: 100%; display: none">
+            <button id="disable-all" class="red-ui-button red-ui-button-small" style="margin-right: 12px;">alle abwählen</button>
+            <button id="enable-all" class="red-ui-button red-ui-button-small">alle auswählen</button>
+            <input type="text" id="matter-search" placeholder="suchen …">
+            <span id="matter-count"></span>
+        </div>
+        <table class="config" id="devices"></table>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-matter-homematic-devices">
+    <p>Legt für ausgewählte Geräte einer CCU-Verbindung (node-red-contrib-ccu) Matter-Endpunkte auf der Bridge an.</p>
+    <h3>Geräteliste</h3>
+    <p>Die Liste zeigt alle Geräte der aktivierten Schnittstellen. <b>Kein Gerät ist vorausgewählt</b> – Controller
+    vertragen nur 50 (Alexa) bzw. etwa 150 (Apple Home) Endpunkte je Bridge, und jeder Endpunkt kostet
+    Arbeitsspeicher auf der CCU. Ein angehaktes Gerät nimmt alle abbildbaren Kanäle mit; einzelne Kanäle lassen
+    sich abwählen. Darunter je nach Gerät:</p>
+    <dl class="message-properties">
+        <dt>Typ-Auswahl</dt><dd>Als was ein Kanal erscheint: Steckdose oder Lampe bei Schaltaktoren, Rollladen mit
+            oder ohne Lamellen. Ein Wechsel ändert die Identität des Endpunkts (der Controller sieht ein neues
+            Gerät).</dd>
+        <dt>Battery</dt><dd>Batteriestand (PowerSource-Cluster) auf dem ersten Endpunkt des Geräts, wenn das Gerät
+            <code>LOW_BAT</code>/<code>LOWBAT</code> meldet; der Prozentwert kommt aus <code>OPERATING_VOLTAGE</code>.</dd>
+        <dt>Humidity, Illuminance</dt><dd>Feuchte- bzw. Helligkeitsmessung zusätzlich auf dem Sensor-Endpunkt.</dd>
+        <dt>OpenOnUnlock</dt><dd>Türschlösser: „Entriegeln“ im Controller öffnet die Tür (Falle) statt nur zu
+            entriegeln.</dd>
+        <dt>Boost</dt><dd>Thermostate: zusätzliche Steckdose zum Schalten des Boost-Modus (opt-in).</dd>
+        <dt>Virtuelle Kanäle, Taster an Aktoren</dt><dd>Die zweiten und dritten virtuellen Empfängerkanäle von
+            HmIP-Aktoren (z.&nbsp;B. <code>:5</code>, <code>:6</code>) und die Tasten an Aktoren sind abwählbar und
+            standardmäßig aus.</dd>
+    </dl>
+    <h3>Zuordnung</h3>
+    <p>Schalter → Steckdose/Lampe, Dimmer → dimmbare Lampe, Farblampen → Farblampe, Rollläden und Jalousien →
+    Window Covering, Kontakte und Griffkontakte → Kontaktsensor, Bewegungs-/Präsenzmelder → Belegungssensor (mit
+    Helligkeit), Rauchmelder → Rauchalarm, Wasser-/Regenmelder → Leck-/Regensensor, Temperatur-/Feuchte-/
+    Helligkeitssensoren, CO₂ → Luftqualität, Thermostate → Thermostat (Heizen; 4,5&nbsp;°C = Aus), HmIP-DLD /
+    KeyMatic → Türschloss, Taster und Fernbedienungen → Generic Switch (kurz/lang/doppelt). Garagentore und
+    Bewässerung bleiben auf RedMatic-HomeKit, Energiemessung folgt nach 1.0.0. Unbekannte Geräte stehen grau in der
+    Liste mit ihren Kanaltypen – bitte als Issue melden.</p>
+    <h3>Hinweise</h3>
+    <p>Gerätenamen kommen von der CCU (Kanalnamen für Kanäle, maximal 32 Zeichen). Apple Home übernimmt den Namen
+    nur beim Hinzufügen und behält danach seinen eigenen; andere Controller folgen Umbenennungen. Endpunkte behalten
+    ihre Identität über Neustarts, Deploys und Updates, solange Adresse und Typ gleich bleiben. Nach dem Ändern der
+    Auswahl ist ein Deploy nötig; die Bridge geht erst online, wenn dieser Node seine Endpunkte angelegt hat.</p>
+</script>

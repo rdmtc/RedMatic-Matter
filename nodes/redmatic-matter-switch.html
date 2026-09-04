@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-matter-switch', {
+        category: 'redmatic matter',
+        defaults: {
+            bridgeConfig: {value: '', type: 'redmatic-matter-bridge', required: true},
+            name: {value: ''},
+            as: {value: 'plug'},
+            topic: {value: ''}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'matter.svg',
+        color: '#E2D96E',
+        paletteLabel: 'switch',
+        align: 'left',
+        label() {
+            return this.name || 'switch';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-matter-switch">
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="fa fa-sitemap"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-as"><i class="fa fa-toggle-on"></i> Als</label>
+        <select id="node-input-as">
+            <option value="plug">Steckdose (Plug-in Unit)</option>
+            <option value="light">Lampe (On/Off Light)</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-envelope"></i> Topic</label>
+        <input type="text" id="node-input-topic">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-matter-switch">
+    <p>Ein Matter-Schalter, dessen Zustand aus Node-RED kommt und der beim Schalten in der Home-App eine Nachricht
+    sendet.</p>
+    <h3>Einstellungen</h3>
+    <dl class="message-properties">
+        <dt>Als</dt><dd>Steckdose (Standard) oder Lampe. Ein Wechsel ändert die Identität des Endpunkts – der
+            Controller sieht ein neues Gerät und Raum/Automationen müssen neu zugeordnet werden.</dd>
+    </dl>
+    <h3>Eingang</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">boolean</span></dt>
+        <dd>Setzt den angezeigten Zustand (<code>true</code> = an).</dd>
+        <dt>reachable <span class="property-type">boolean</span></dt>
+        <dd>Optional: markiert das Gerät im Controller als (nicht) erreichbar.</dd>
+    </dl>
+    <h3>Ausgang</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">boolean</span></dt>
+        <dd>Wird gesendet, wenn ein Controller den Schalter betätigt – nicht bei eigenen Updates über den
+            Eingang.</dd>
+    </dl>
+    <p>Der Schalter springt nicht von selbst zurück – dafür gibt es den Pseudobutton.</p>
+</script>

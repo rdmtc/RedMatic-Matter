@@ -1,30 +1,62 @@
 {
-    "name": "redmatic-matter",
-    "version": "0.0.1",
-    "description": "Placeholder to reserve the package name. RedMatic-Matter will be a set of Node-RED nodes that expose Homematic CCU devices (via node-red-contrib-ccu) and arbitrary Node-RED data as a Matter bridge, built on matter.js - the Matter sibling of redmatic-homekit.",
-    "main": "none",
-    "author": "Sebastian Raff <hobbyquaker@gmail.com>",
-    "license": "Apache-2.0",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rdmtc/RedMatic-Matter.git"
-    },
-    "bugs": {
-        "url": "https://github.com/rdmtc/RedMatic-Matter/issues"
-    },
-    "homepage": "https://github.com/rdmtc/RedMatic-Matter",
-    "keywords": [
-        "matter",
-        "matter.js",
-        "homematic",
-        "homematic-ip",
-        "ccu",
-        "redmatic"
-    ],
-    "files": [
-        "README.md"
-    ],
-    "engines": {
-        "node": "^22.13 || >=24"
+  "name": "redmatic-matter",
+  "version": "1.0.0-dev.0",
+  "description": "matter.js based Node-RED nodes that expose Homematic CCU devices (via node-red-contrib-ccu) and arbitrary Node-RED data as a Matter bridge - the Matter sibling of redmatic-homekit",
+  "main": "none",
+  "author": "Sebastian Raff <hobbyquaker@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdmtc/RedMatic-Matter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rdmtc/RedMatic-Matter/issues"
+  },
+  "homepage": "https://github.com/rdmtc/RedMatic-Matter",
+  "keywords": [
+    "node-red",
+    "smart home automation",
+    "matter",
+    "matter.js",
+    "homematic",
+    "homematic-ip",
+    "ccu",
+    "redmatic"
+  ],
+  "files": [
+    "nodes/",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": "^22.13 || >=24"
+  },
+  "node-red": {
+    "version": ">=4.0.0",
+    "nodes": {
+      "redmatic-matter-bridge": "nodes/redmatic-matter-bridge.js",
+      "redmatic-matter-homematic-devices": "nodes/redmatic-matter-homematic-devices.js",
+      "redmatic-matter-switch": "nodes/redmatic-matter-switch.js",
+      "redmatic-matter-pseudobutton": "nodes/redmatic-matter-pseudobutton.js",
+      "redmatic-matter-programmableswitch": "nodes/redmatic-matter-programmableswitch.js",
+      "redmatic-matter-universal": "nodes/redmatic-matter-universal.js"
     }
+  },
+  "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write . && eslint --fix .",
+    "test": "npm run lint && npm run test:unit && npm run check:native",
+    "test:unit": "node --test \"test/**/*.test.js\"",
+    "check:native": "node tools/check-native.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-html": "^8.2.0",
+    "globals": "^16.5.0",
+    "prettier": "^3.9.6"
+  },
+  "dependencies": {
+    "@matter/main": "~0.17.9"
+  }
 }

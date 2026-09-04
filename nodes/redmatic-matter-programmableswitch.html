@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-matter-programmableswitch', {
+        category: 'redmatic matter',
+        defaults: {
+            bridgeConfig: {value: '', type: 'redmatic-matter-bridge', required: true},
+            name: {value: ''},
+            count: {value: 4}
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: 'matter.svg',
+        color: '#E2D96E',
+        paletteLabel: 'event',
+        align: 'left',
+        label() {
+            return this.name || 'event';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-matter-programmableswitch">
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="fa fa-sitemap"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-count"><i class="fa fa-th"></i> Anzahl</label>
+        <select id="node-input-count">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>12</option>
+            <option>19</option>
+            <option>50</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-matter-programmableswitch">
+    <p>Taster in Matter (Generic Switch, wie ein HmIP-Wandtaster), ausgelöst durch Nachrichten aus Node-RED. Jeder
+    Taster wird ein eigener Endpunkt; in der Home-App lassen sich Szenen für Einfach-, Doppel- und langen Druck
+    zuweisen.</p>
+    <h3>Einstellungen</h3>
+    <dl class="message-properties">
+        <dt>Anzahl</dt><dd>Anzahl der Taster (1 … n). Wird die Anzahl verkleinert, verschwinden die überzähligen
+            Endpunkte beim Controller.</dd>
+    </dl>
+    <h3>Eingang</h3>
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd><code>&lt;Taster&gt;/&lt;Art&gt;</code>, z.&nbsp;B. <code>1/short</code>, <code>2/long</code> oder
+            <code>3/double</code>. Alles, was weder <i>long</i> noch <i>double</i> enthält, gilt als kurzer Druck.
+            Ein langer Druck dauert etwas länger als 0,8&nbsp;s, ein Doppeldruck etwa eine halbe Sekunde.</dd>
+    </dl>
+</script>

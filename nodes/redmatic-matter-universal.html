@@ -1,0 +1,198 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redmatic-matter-universal', {
+        category: 'redmatic matter',
+        defaults: {
+            bridgeConfig: {value: '', type: 'redmatic-matter-bridge', required: true},
+            name: {value: ''},
+            endpoints: {value: []}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'matter.svg',
+        color: '#E2D96E',
+        paletteLabel: 'universal',
+        align: 'left',
+        label() {
+            return this.name || 'universal';
+        },
+        labelStyle() {
+            return this.name ? 'node_label_italic' : '';
+        },
+        oneditprepare() {
+            const that = this;
+            const flags = ['battery', 'humidity', 'illuminance', 'tilt'];
+            let types = [];
+
+            function escape(text) {
+                return $('<div>').text(String(text)).html();
+            }
+
+            function typeOptions(selected) {
+                let html = '';
+                let group = null;
+                types.forEach(t => {
+                    if (t.group !== group) {
+                        if (group !== null) {
+                            html += '</optgroup>';
+                        }
+                        group = t.group;
+                        html += '<optgroup label="' + escape(group) + '">';
+                    }
+                    html += '<option value="' + escape(t.name) + '"' + (t.name === selected ? ' selected' : '') + '>' + escape(t.label) + '</option>';
+                });
+                if (group !== null) {
+                    html += '</optgroup>';
+                }
+                return html;
+            }
+
+            function build() {
+                $('ol#endpoints').editableList({
+                    removable: true,
+                    sortable: false,
+                    addItem: function (row, index, data) {
+                        let html = '<span class="ep-index">' + index + '</span>';
+                        html += '<select class="ep-type">' + typeOptions(data.type) + '</select>';
+                        html += '<input class="ep-name" placeholder="Name" value="' + escape(data.name || '') + '">';
+                        html += '<span class="ep-flags">';
+                        flags.forEach(f => {
+                            html += '<label title="' + f + '"><input type="checkbox" class="ep-flag" data-flag="' + f + '"' + (data[f] ? ' checked' : '') + '> ' + f + '</label>';
+                        });
+                        html += '</span>';
+                        $(row).html(html);
+                    },
+                    removeItem: function () {
+                        const items = read();
+                        $('ol#endpoints').editableList('empty');
+                        $('ol#endpoints').editableList('addItems', items);
+                    }
+                });
+                $('ol#endpoints').editableList('addItems', that.endpoints || []);
+            }
+
+            function read() {
+                const endpoints = [];
+                $('ol#endpoints').editableList('items').each(function () {
+                    const entry = {type: $(this).find('.ep-type').val(), name: $(this).find('.ep-name').val()};
+                    $(this).find('.ep-flag').each(function () {
+                        if ($(this).is(':checked')) {
+                            entry[$(this).data('flag')] = true;
+                        }
+                    });
+                    endpoints.push(entry);
+                });
+                return endpoints;
+            }
+
+            this.readEndpoints = read;
+
+            $.getJSON('redmatic-matter/device-types', data => {
+                types = data;
+                build();
+            }).fail(() => {
+                types = [{name: 'onOffPlugInUnit', label: 'Plug-in unit', group: 'Actuators'}];
+                build();
+            });
+        },
+        oneditsave() {
+            this.endpoints = this.readEndpoints ? this.readEndpoints() : this.endpoints;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="redmatic-matter-universal">
+    <div class="form-row">
+        <label for="node-input-bridgeConfig"><i class="fa fa-sitemap"></i> Bridge</label>
+        <input type="text" id="node-input-bridgeConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <style>
+        span.ep-index {
+            display: inline-block;
+            width: 18px;
+            padding-left: 3px;
+            font-weight: bold;
+        }
+        select.ep-type {
+            width: 38%;
+        }
+        input.ep-name {
+            width: 30%;
+            margin-left: 6px;
+        }
+        span.ep-flags {
+            margin-left: 6px;
+            font-size: 0.85em;
+        }
+        span.ep-flags label {
+            display: inline-block;
+            width: auto;
+            margin-right: 6px;
+        }
+        span.ep-flags input {
+            width: auto !important;
+            vertical-align: middle;
+            margin: 0 2px 0 0;
+        }
+    </style>
+    <div class="form-row">
+        <label style="width: 100%"><i class="fa fa-list"></i> Endpunkte (Index / Gerätetyp / Name / Optionen)</label>
+        <ol id="endpoints"></ol>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="redmatic-matter-universal">
+    <p>Beliebige Matter-Geräte aus Node-RED-Nachrichten. Im Node werden Endpunkte zusammengestellt; jeder Endpunkt
+    ist ein Matter-Gerätetyp (Lampe, Steckdose, Kontaktsensor, Thermostat, Rollladen, Türschloss, …) mit einem
+    Index, der in den Topics verwendet wird.</p>
+    <h3>Optionen je Endpunkt</h3>
+    <dl class="message-properties">
+        <dt>battery</dt><dd>Batterie-Cluster (<code>powerSource/batPercentRemaining</code> 0–200 = 0–100 %,
+            <code>powerSource/batChargeLevel</code> 0 ok, 1 warnung, 2 kritisch).</dd>
+        <dt>humidity</dt><dd>Feuchtemessung zusätzlich (<code>relativeHumidityMeasurement/measuredValue</code>).</dd>
+        <dt>illuminance</dt><dd>Helligkeitsmessung zusätzlich (<code>illuminanceMeasurement/measuredValue</code>).</dd>
+        <dt>tilt</dt><dd>Rollladen mit Lamellen (Window Covering mit Tilt).</dd>
+    </dl>
+    <p>Eine Änderung des Typs oder der Optionen ändert die Identität des Endpunkts; der Controller sieht dann ein
+    neues Gerät.</p>
+    <h3>Eingang</h3>
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd><code>&lt;Index&gt;/&lt;Cluster&gt;/&lt;Attribut&gt;</code> mit den Namen von matter.js, z.&nbsp;B.
+            <code>0/onOff/onOff</code>, <code>0/levelControl/currentLevel</code>,
+            <code>1/temperatureMeasurement/measuredValue</code>. Mit <code>&lt;Index&gt;/&lt;Cluster&gt;</code> und
+            einem Objekt als Payload werden mehrere Attribute eines Clusters auf einmal gesetzt.</dd>
+        <dt>payload <span class="property-type">boolean | number | object</span></dt>
+        <dd>Der neue Wert in Matter-Einheiten: Temperaturen und Feuchte in Hundertsteln (21,5&nbsp;°C =
+            <code>2150</code>), Helligkeit als Level 1–254, Farbtemperatur in Mired, Positionen von Rollläden in
+            Hundertstelprozent (0 = offen, 10000 = geschlossen), Beleuchtungsstärke als
+            <code>10000·log10(lux)+1</code>.</dd>
+        <dt>reachable <span class="property-type">boolean</span></dt>
+        <dd>Optional: Erreichbarkeit des Endpunkts.</dd>
+    </dl>
+    <h3>Ausgang</h3>
+    <dl class="message-properties">
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd><code>&lt;Index&gt;/&lt;Cluster&gt;/&lt;Attribut&gt;</code> des vom Controller geänderten Attributs, oder
+            <code>&lt;Index&gt;/&lt;Cluster&gt;/&lt;Kommando&gt;</code> für Kommandos wie
+            <code>0/doorLock/lockDoor</code>, <code>0/windowCovering/stopMotion</code>,
+            <code>0/windowCovering/goToLiftPercentage</code>.</dd>
+        <dt>payload</dt><dd>Der vom Controller gesetzte Wert bzw. die Felder des Kommandos.</dd>
+    </dl>
+    <h3>Rezepte</h3>
+    <p><b>Zigbee2MQTT-Farblampe:</b> Endpunkt „Colour light“; Zustand aus MQTT nach <code>0/onOff/onOff</code>,
+    <code>0/levelControl/currentLevel</code> (Helligkeit·254/100), <code>0/colorControl/currentHue</code>
+    (Hue·254/360) und <code>0/colorControl/currentSaturation</code> schreiben; die Ausgangsnachrichten zurück nach
+    MQTT übersetzen.<br>
+    <b>Systemvariable als Temperatursensor:</b> Endpunkt „Temperature sensor“, ccu-sysvar-Node → function
+    (<code>msg.topic = '0/temperatureMeasurement/measuredValue'; msg.payload = Math.round(msg.payload * 100)</code>).<br>
+    <b>Türschloss aus einem Skript:</b> Endpunkt „Door lock“; Ausgang <code>0/doorLock/lockDoor</code> /
+    <code>unlockDoor</code> führt das Skript aus, der Rückweg setzt <code>0/doorLock/lockState</code> (1 verriegelt,
+    2 entriegelt).</p>
+    <p>Nach dem Deploy sollte jedes lesbare Attribut einmal mit einem Wert versorgt werden, sonst zeigt der
+    Controller den Startwert. Nur Änderungen durch Controller erzeugen Ausgangsnachrichten, eigene Updates über
+    den Eingang nicht.</p>
+</script>
