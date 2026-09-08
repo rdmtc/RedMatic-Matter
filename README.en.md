@@ -116,8 +116,8 @@ npm run format
 tools/smoke-local.sh   # packs, installs shallowly into a fresh Node-RED 5, brings a bridge online
 ```
 
-Notes for contributors and agents are in [AGENTS.md](AGENTS.md), the plan
-with every decision in [ROADMAP.md](ROADMAP.md).
+Notes for contributors and agents are in [AGENTS.md](AGENTS.md); the plan
+with every decision is kept outside this repository.
 
 ## Credits
 

@@ -120,8 +120,8 @@ npm run format
 tools/smoke-local.sh   # packt, installiert flach in ein frisches Node-RED 5 und bringt eine Bridge online
 ```
 
-Hinweise für Beiträge und Agenten stehen in [AGENTS.md](AGENTS.md), der
-Plan mit allen Entscheidungen in [ROADMAP.md](ROADMAP.md).
+Hinweise für Beiträge und Agenten stehen in [AGENTS.md](AGENTS.md); der
+Plan mit allen Entscheidungen wird außerhalb dieses Repositories gepflegt.
 
 ## Danksagung
 
