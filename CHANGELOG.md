@@ -5,7 +5,7 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
-## Unreleased
+## 1.0.2 — 2026-10-29
 
 **Release-Notes (Deutsch).** Homematic-Geräte melden jetzt eQ-3 als
 Hersteller; die Home-App zeigte bisher „Unbekannt“. Geräte der übrigen Nodes
