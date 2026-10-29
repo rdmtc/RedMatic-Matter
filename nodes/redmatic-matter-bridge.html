@@ -74,6 +74,7 @@
                     url: 'redmatic-matter/bridge/' + that.id + '/' + name,
                     type: 'POST',
                     contentType: 'application/json',
+                    dataType: 'json',
                     data: JSON.stringify(body || {}),
                     success: render,
                     error: xhr => {
@@ -95,12 +96,17 @@
                     status = '<span style="color: #d00">' + escape(info.error) + '</span>';
                 } else if (info.state === 'online') {
                     status = info.commissioned ? 'online, paired with ' + info.fabrics.length + ' controller(s)' : 'online, waiting to be paired';
+                    if (info.commissioned && info.commissioningWindow !== 'closed') {
+                        status += ' &middot; pairing window open';
+                    }
                 } else {
                     status = escape(info.state);
                 }
                 $('#matter-status').html(status + ' &middot; ' + info.endpoints.length + ' endpoints on port ' + info.port);
 
-                if (info.pairingCodes && !info.commissioned) {
+                // unpaired, or paired and the window opened here: the bridge's own codes apply (a window a
+                // controller opened has that controller's code instead)
+                if (info.pairingCodes && (!info.commissioned || info.commissioningWindow === 'basic')) {
                     $('#matter-pairing').show();
                     if (lastQr !== info.pairingCodes.qrPairingCode) {
                         lastQr = info.pairingCodes.qrPairingCode;

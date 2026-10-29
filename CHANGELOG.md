@@ -12,15 +12,32 @@ Hersteller; die Home-App zeigte bisher „Unbekannt“. Geräte der übrigen Nod
 (Schalter, Taster, Universal) melden RedMatic. Ob ein bereits gekoppelter
 Controller den Hersteller nachträglich übernimmt, hängt vom Controller ab.
 
+„Kopplungsfenster öffnen“ im Bridge-Dialog funktioniert wieder: das Fenster
+geht auf, und Kopplungscode und QR-Code der Bridge werden angezeigt, solange
+es offen ist – auch wenn die Bridge schon gekoppelt ist. So lässt sich ein
+weiterer Controller hinzufügen (#1, gemeldet von @tsscharli – danke!).
+
 **Release notes (English summary).** Homematic devices now report eQ-3 as
 their vendor; Apple Home showed "Unknown" before. Devices of the other nodes
 (switch, button, universal) report RedMatic. Whether a controller that paired
 the bridge earlier takes the vendor over depends on the controller.
 
+"Kopplungsfenster öffnen" (open pairing window) in the bridge dialog works
+again: it opens the window and shows the bridge's pairing code and QR code
+while it is open, also when the bridge is already paired (#1, reported by
+@tsscharli - thank you!).
+
 ### Fixed
 
 - Bridged devices carry a `VendorName` in BridgedDeviceBasicInformation:
   `eQ-3` for the **homematic** node's devices, `RedMatic` for the others.
+- **bridge** dialog: "Kopplungsfenster öffnen" failed with a TypeError
+  (`Cannot read properties of undefined (reading 'length')`) and showed
+  nothing — the dialog did not read the answer as JSON. It now opens the
+  window and shows the bridge's pairing code and QR code while the window is
+  open, also when the bridge is already paired; the status line says
+  "pairing window open" ([#1](https://github.com/rdmtc/RedMatic-Matter/issues/1),
+  reported by @tsscharli — thank you!).
 
 ## 1.0.1 — 2026-10-29
 

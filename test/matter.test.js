@@ -282,3 +282,12 @@ test('every device type and option combination initialises on a real ServerNode'
         assert.ok(handle.number > 1, handle.id + ' has a number');
     }
 });
+
+test('the bridge reports its commissioning window', async () => {
+    const bridge = createBridge();
+    bridge.device({ownerId: 'ABC0000009:1', type: 'onOffPlugInUnit', label: 'Window'});
+    await bridge.start();
+    assert.ok(['closed', 'enhanced', 'basic'].includes(bridge.info().commissioningWindow));
+    await bridge.openCommissioningWindow();
+    assert.equal(bridge.info().commissioningWindow, 'basic');
+});

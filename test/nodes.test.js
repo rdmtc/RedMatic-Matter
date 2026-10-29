@@ -267,6 +267,8 @@ test('admin endpoints: suggestions, live info, device types and actions', async 
         action: 'openCommissioningWindow',
     });
     assert.equal(window.status, 200);
+    assert.equal(window.body.commissioningWindow, 'basic', 'the answer carries the bridge state the dialog renders');
+    assert.equal(window.body.endpoints.length, 1);
     const remove = await RED.post(
         '/redmatic-matter/bridge/:id/:action',
         {id: bridgeNode.id, action: 'removeFabric'},

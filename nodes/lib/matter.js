@@ -25,6 +25,9 @@ const devices = require('./devices');
 const pairing = require('./pairing');
 const {vendorName} = require('./vendors');
 
+/** matter.js' STANDARD_COMMISSIONING_TIMEOUT: how long a commissioning window it opens stays open */
+const BASIC_WINDOW_MS = 15 * 60 * 1000;
+
 let storagePath;
 let loaded;
 
@@ -675,6 +678,29 @@ class MatterBridge extends EventEmitter {
         return Boolean(this.server && this.server.state.commissioning.commissioned);
     }
 
+    /**
+     * The commissioning window: 'enhanced' (a controller opened it, with its own code), 'basic' (opened here,
+     * with the bridge's own codes) or 'closed'. matter.js keeps a basic window's state to itself, so the one
+     * opened here counts as open for matter.js' standard 15 minutes or until another controller has paired.
+     */
+    get commissioningWindow() {
+        if (!this.server) {
+            return 'closed';
+        }
+
+        const admin = this.server.state.administratorCommissioning;
+        if (admin && admin.windowStatus === 1) {
+            return 'enhanced';
+        }
+
+        const opened = this.basicWindow;
+        if (opened && Date.now() < opened.until && this.fabrics.length === opened.fabrics) {
+            return 'basic';
+        }
+
+        return 'closed';
+    }
+
     get pairingCodes() {
         if (!this.server) {
             return null;
@@ -741,6 +767,7 @@ class MatterBridge extends EventEmitter {
             online: this.online,
             commissioned: this.commissioned,
             pairingCodes: this.pairingCodes,
+            commissioningWindow: this.commissioningWindow,
             fabrics: this.fabrics,
             endpoints: [...this.devices.values()].map((d) => ({
                 id: d.id,
@@ -779,7 +806,10 @@ class MatterBridge extends EventEmitter {
             return Promise.reject(new Error('bridge is not running'));
         }
 
-        return this.enqueue(() => this.server.act((agent) => agent.commissioning.enterCommissionableMode()));
+        return this.enqueue(async () => {
+            await this.server.act((agent) => agent.commissioning.enterCommissionableMode());
+            this.basicWindow = {until: Date.now() + BASIC_WINDOW_MS, fabrics: this.fabrics.length};
+        });
     }
 
     /**
