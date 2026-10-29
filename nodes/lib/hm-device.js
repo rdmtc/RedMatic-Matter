@@ -47,7 +47,7 @@ class HomematicDevice {
                 ownerId: e.address,
                 type: e.type,
                 options: e.typeOptions,
-                label: single ? p.name : e.name,
+                label: mapping.endpointLabel(p, e, single),
                 productName: p.type,
                 serialNumber: e.address,
                 hardwareVersion: p.firmware,

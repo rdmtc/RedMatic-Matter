@@ -296,3 +296,41 @@ test('mapping snapshot over the whole fixture set', () => {
     const expected = JSON.parse(fs.readFileSync(file, 'utf8'));
     assert.deepEqual(actual, expected, 'mapping changed — review and run with UPDATE_SNAPSHOT=1');
 });
+
+test('a single enabled endpoint is announced with its channel name, the device name only for an unnamed channel', () => {
+    const labelOf = (channelName, {both = false} = {}) => {
+        const ccu = fixtures.ccuFor('HM-LC-Sw2-FM');
+        const a = ccu.address;
+        ccu.channelNames[a] = 'Aktor Werkstatt';
+        ccu.channelNames[a + ':1'] = channelName;
+        ccu.channelNames[a + ':2'] = 'Brunnenpumpe';
+        const options = both ? {} : {[a + ':2']: {disabled: true}};
+        const p = mapping.plan(ccu.device, ccu, ccu.enabledIfaces[0], options);
+        const enabled = p.endpoints.filter((e) => e.enabled);
+        return enabled.map((e) => mapping.endpointLabel(p, e, enabled.length === 1));
+    };
+
+    const a = fixtures.ccuFor('HM-LC-Sw2-FM').address;
+    assert.deepEqual(labelOf('Gartenlicht'), ['Gartenlicht'], 'named channel');
+    assert.deepEqual(labelOf(''), ['Aktor Werkstatt'], 'no name: plan falls back to the address');
+    assert.deepEqual(labelOf(a + ':1'), ['Aktor Werkstatt'], 'the address');
+    assert.deepEqual(labelOf('HM-LC-Sw2-FM ' + a + ':1'), ['Aktor Werkstatt'], 'CCU default of a new device');
+    assert.deepEqual(labelOf('Aktor Werkstatt:1'), ['Aktor Werkstatt'], 'default renamed with the device');
+    assert.deepEqual(labelOf('Aktor Werkstatt:Licht'), ['Aktor Werkstatt:Licht'], 'not a default');
+    assert.deepEqual(labelOf('Gartenlicht', {both: true}), ['Gartenlicht', 'Brunnenpumpe']);
+    assert.deepEqual(labelOf('', {both: true}), [a + ':1', 'Brunnenpumpe'], 'several endpoints: unchanged');
+});
+
+test('a single endpoint that extends its channel name keeps the extension', () => {
+    const p = {address: 'ABC0000001', name: 'Thermostat Bad'};
+    const boost = {index: 1, name: 'ABC0000001:1 Boost', channelName: 'ABC0000001:1'};
+    assert.equal(mapping.endpointLabel(p, boost, true), 'Thermostat Bad Boost');
+    assert.equal(
+        mapping.endpointLabel(p, {...boost, name: 'Heizung Boost', channelName: 'Heizung'}, true),
+        'Heizung Boost',
+    );
+    assert.equal(mapping.endpointLabel(p, {index: 1, name: 'Heizung'}, true), 'Heizung', 'without channelName');
+    assert.equal(mapping.isDefaultChannelName(undefined, 'ABC0000001:1', 'Thermostat Bad'), true);
+    assert.equal(mapping.isDefaultChannelName('Thermostat Bad:12', 'ABC0000001:12', 'Thermostat Bad'), true);
+    assert.equal(mapping.isDefaultChannelName('Thermostat Bad:1a', 'ABC0000001:1', 'Thermostat Bad'), false);
+});

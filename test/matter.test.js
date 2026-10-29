@@ -140,6 +140,25 @@ test('endpoint numbers survive a restart from the same storage; deleted endpoint
     await second.stop();
 });
 
+test('a changed label replaces the stored nodeLabel after a restart, the endpoint stays', async () => {
+    const port = harness.nextPort();
+    const first = createBridge({port, id: 'relabel-' + port});
+    const a = first.device({ownerId: 'dev-r', type: 'onOffPlugInUnit', label: 'Aktor Werkstatt'});
+    await first.start();
+    const {number, id} = a;
+    const uniqueId = a.state.bridgedDeviceBasicInformation.uniqueId;
+    await first.stop();
+
+    const second = createBridge({port, id: 'relabel-' + port});
+    const a2 = second.device({ownerId: 'dev-r', type: 'onOffPlugInUnit', label: 'Gartenlicht'});
+    await second.start();
+    assert.equal(a2.id, id);
+    assert.equal(a2.number, number, 'same endpoint number');
+    assert.equal(a2.state.bridgedDeviceBasicInformation.uniqueId, uniqueId, 'same uniqueId');
+    assert.equal(a2.state.bridgedDeviceBasicInformation.nodeLabel, 'Gartenlicht');
+    await second.stop();
+});
+
 test('a changed device type rotates the endpoint identity of the same owner', async () => {
     const bridge = createBridge();
     const light = bridge.device({ownerId: 'sw1', type: 'onOffLight', label: 'Licht'});

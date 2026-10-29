@@ -58,7 +58,7 @@ test('HmIP-PSM: transmitter state feeds the plug, controller writes go to the re
     const plug = s.device(3);
     assert.equal(plug.typeKey, 'onOffPlugInUnit');
     assert.equal(s.hm.devices.length, 1, 'keys on actuators and virtual receivers are opt-in');
-    assert.equal(plug.state.bridgedDeviceBasicInformation.nodeLabel, s.ccu.device.TYPE);
+    assert.equal(plug.state.bridgedDeviceBasicInformation.nodeLabel, s.ccu.device.TYPE + ' 3', 'the channel name');
     assert.equal(plug.state.bridgedDeviceBasicInformation.productName, s.ccu.device.TYPE);
 
     s.ccu.emitValue(`HmIP-RF.${s.address}:2.STATE`, true);
@@ -229,4 +229,22 @@ test('stop() unsubscribes and detaches, remove() deletes the endpoints', async (
     assert.equal(s.bridge.devices.size, 1, 'endpoint stays for a redeploy');
     await s.hm.remove({erase: true});
     assert.equal(s.bridge.devices.size, 0);
+});
+
+test('one enabled channel of a multi-channel actor is announced with the channel name', async () => {
+    const address = fixtures.ccuFor('HM-LC-Sw2-FM').address;
+    const s = await setup('HM-LC-Sw2-FM', {
+        options: {[address + ':2']: {disabled: true}},
+        channelNames: {[address]: 'Aktor Werkstatt', [address + ':1']: 'Gartenlicht'},
+    });
+    assert.equal(s.hm.devices.length, 1);
+    const plug = s.device(1);
+    assert.equal(plug.state.bridgedDeviceBasicInformation.nodeLabel, 'Gartenlicht');
+    assert.equal(plug.state.bridgedDeviceBasicInformation.serialNumber, address + ':1', 'identity unchanged');
+
+    const unnamed = await setup('HM-LC-Sw2-FM', {
+        options: {[address + ':2']: {disabled: true}},
+        channelNames: {[address]: 'Aktor Werkstatt', [address + ':1']: 'Aktor Werkstatt:1'},
+    });
+    assert.equal(unnamed.device(1).state.bridgedDeviceBasicInformation.nodeLabel, 'Aktor Werkstatt');
 });

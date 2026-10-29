@@ -242,6 +242,7 @@ function endpointsFor(c, ctx) {
         index: c.index,
         role: c.role,
         name: c.name,
+        channelName: c.name,
         channelType: c.type,
         type,
         typeOptions: {},
@@ -811,8 +812,50 @@ function maintenancePlan(p) {
     return {subscriptions};
 }
 
+/**
+ * True when a channel carries no name of its own: none, its address, or one
+ * of the CCU's defaults "<TYPE> <address>" (new device) and "<device name>:<n>"
+ * (the WebUI renames default channel names with their device).
+ */
+function isDefaultChannelName(name, channelAddress, deviceName) {
+    const n = String(name || '').trim();
+    return (
+        n === '' ||
+        n === channelAddress ||
+        n.endsWith(' ' + channelAddress) ||
+        (Boolean(deviceName) && n.startsWith(deviceName + ':') && /^\d+$/.test(n.slice(deviceName.length + 1)))
+    );
+}
+
+/**
+ * The name a bridged device is announced with. Several enabled endpoints of a
+ * device each carry their channel's name. A single one carries its channel's
+ * name too - on a multi-channel actor the one channel in use is the one the
+ * user named ("Gartenlicht" on "Aktor Werkstatt") - and the device's
+ * name only when the channel has no name of its own.
+ * @param {object} p  plan from plan()
+ * @param {object} e  one of its endpoints
+ * @param {boolean} single  whether e is the device's only enabled endpoint
+ */
+function endpointLabel(p, e, single) {
+    if (!single) {
+        return e.name;
+    }
+
+    const channelName = e.channelName === undefined ? e.name : e.channelName;
+    if (!isDefaultChannelName(channelName, p.address + ':' + e.index, p.name)) {
+        return e.name;
+    }
+
+    // keep what the endpoint adds to its channel's name (" Boost")
+    const suffix = String(e.name || '').startsWith(channelName) ? e.name.slice(channelName.length) : '';
+    return p.name + suffix;
+}
+
 module.exports = {
     plan,
+    endpointLabel,
+    isDefaultChannelName,
     maintenancePlan,
     endpointsFor,
     isOptIn,
