@@ -39,6 +39,7 @@ test('a bridge with two endpoints goes online, numbers its endpoints and has pai
     assert.equal(contact.id, 'ABC0000002:1~contactSensor+battery');
     assert.equal(plug.state.bridgedDeviceBasicInformation.nodeLabel, 'Steckdose');
     assert.equal(plug.state.bridgedDeviceBasicInformation.productName, 'HmIP-PS');
+    assert.equal(plug.state.bridgedDeviceBasicInformation.vendorName, 'RedMatic', 'the default vendor');
     assert.equal(plug.state.bridgedDeviceBasicInformation.serialNumber, 'ABC0000001:3');
     assert.equal(contact.state.powerSource.batChargeLevel, 0);
 

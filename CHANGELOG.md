@@ -5,6 +5,23 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
+## Unreleased
+
+**Release-Notes (Deutsch).** Homematic-Geräte melden jetzt eQ-3 als
+Hersteller; die Home-App zeigte bisher „Unbekannt“. Geräte der übrigen Nodes
+(Schalter, Taster, Universal) melden RedMatic. Ob ein bereits gekoppelter
+Controller den Hersteller nachträglich übernimmt, hängt vom Controller ab.
+
+**Release notes (English summary).** Homematic devices now report eQ-3 as
+their vendor; Apple Home showed "Unknown" before. Devices of the other nodes
+(switch, button, universal) report RedMatic. Whether a controller that paired
+the bridge earlier takes the vendor over depends on the controller.
+
+### Fixed
+
+- Bridged devices carry a `VendorName` in BridgedDeviceBasicInformation:
+  `eQ-3` for the **homematic** node's devices, `RedMatic` for the others.
+
 ## 1.0.1 — 2026-10-29
 
 **Release-Notes (Deutsch).** Ist bei einem Gerät nur ein Kanal für Matter

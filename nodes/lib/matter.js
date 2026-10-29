@@ -355,7 +355,7 @@ class MatterBridge extends EventEmitter {
 
     /**
      * Get or create the endpoint for a spec:
-     *   {ownerId, type, options, label, productName, serialNumber, hardwareVersion, softwareVersion}
+     *   {ownerId, type, options, label, vendorName, productName, serialNumber, hardwareVersion, softwareVersion}
      * The endpoint id is `<ownerId>~<type key>`. An existing device with the
      * same id is reused (its listeners are replaced by the caller's); an
      * existing device of the same owner with a different type key is removed
@@ -392,6 +392,7 @@ class MatterBridge extends EventEmitter {
         deepMerge(device.pending, {
             bridgedDeviceBasicInformation: {
                 nodeLabel: label,
+                vendorName: pairing.label(spec.vendorName, 'RedMatic'),
                 productName: pairing.label(spec.productName, 'RedMatic'),
                 productLabel: pairing.label(spec.productName, 'RedMatic'),
                 serialNumber: pairing.label(spec.serialNumber || spec.ownerId),

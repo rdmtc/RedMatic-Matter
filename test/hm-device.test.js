@@ -60,6 +60,7 @@ test('HmIP-PSM: transmitter state feeds the plug, controller writes go to the re
     assert.equal(s.hm.devices.length, 1, 'keys on actuators and virtual receivers are opt-in');
     assert.equal(plug.state.bridgedDeviceBasicInformation.nodeLabel, s.ccu.device.TYPE + ' 3', 'the channel name');
     assert.equal(plug.state.bridgedDeviceBasicInformation.productName, s.ccu.device.TYPE);
+    assert.equal(plug.state.bridgedDeviceBasicInformation.vendorName, 'eQ-3');
 
     s.ccu.emitValue(`HmIP-RF.${s.address}:2.STATE`, true);
     await tick(150);

@@ -48,6 +48,7 @@ class HomematicDevice {
                 type: e.type,
                 options: e.typeOptions,
                 label: mapping.endpointLabel(p, e, single),
+                vendorName: 'eQ-3',
                 productName: p.type,
                 serialNumber: e.address,
                 hardwareVersion: p.firmware,
