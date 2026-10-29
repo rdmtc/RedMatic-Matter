@@ -5,6 +5,43 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
+## 1.0.1 — 2026-10-29
+
+**Release-Notes (Deutsch).** Ist bei einem Gerät nur ein Kanal für Matter
+ausgewählt, erscheint er jetzt mit dem Namen des Kanals statt mit dem des
+Geräts – ein Schaltaktor, von dem nur ein Kanal verwendet wird, meldet sich
+also als „Gartenlicht“ und nicht mehr als „Aktor Werkstatt“. Hat der Kanal
+keinen eigenen Namen (leer, seine Adresse oder einer der Vorgabenamen der
+CCU wie „Aktor Werkstatt:3“), bleibt es beim Gerätenamen. Die Identität der
+Geräte ändert sich nicht: Kopplungen, Räume und Automationen bleiben
+erhalten. Die Bridge meldet den neuen Namen nach dem Update an die
+gekoppelten Controller; ob ein Controller ihn übernimmt oder bei dem Namen
+bleibt, den er beim Hinzufügen gespeichert hat, hängt vom Controller ab –
+wer dort noch den alten Namen sieht, benennt das Gerät einmal von Hand um.
+
+**Release notes (English summary).** A device with only one channel
+selected for Matter is now announced with that channel's name instead of
+the device's - a switch actuator with one channel in use shows up as the
+light it switches. Without a name of its own (empty, its address or one of
+the CCU's default names such as "Switch actuator 1:3") the channel keeps
+the device's name. The endpoints' identity is unchanged, so pairings, rooms
+and automations stay. The bridge reports the new name to paired controllers
+after the update; whether a controller takes it over or keeps the name it
+stored when the device was added depends on the controller - where the old
+name stays, rename the device there once.
+
+### Fixed
+
+- **homematic** node: a device with a single enabled endpoint is labelled
+  with its channel's name (BridgedDeviceBasicInformation `NodeLabel`); the
+  device name only when the channel carries none of its own.
+
+### Changed
+
+- Release workflow: after the npm publish the Node-RED flow library is
+  asked to pick up the new version, and it waits while the library's npm
+  cache still shows the previous one.
+
 ## 1.0.0 — 2026-09-04
 
 **Release-Notes (Deutsch).** RedMatic-Matter ist das Matter-Gegenstück zu
