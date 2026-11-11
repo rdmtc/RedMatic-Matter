@@ -246,8 +246,9 @@
             sind laut Matter-Spezifikation ungültig).</dd>
         <dt>Discriminator</dt><dd>12-Bit-Zahl (0–4095), mit der Controller die Bridge beim Koppeln
             unterscheiden (wird vorgeschlagen).</dd>
-        <dt>mDNS über IPv4</dt><dd>Standard an. Läuft auf dem Host ein <code>avahi-daemon</code>, erreicht IPv4-Multicast
-            manchmal nur einen Responder; dann hilft das Abschalten (Matter braucht ohnehin IPv6). Gilt für alle
+        <dt>mDNS über IPv4</dt><dd>Standard an. Läuft auf dem Host ein <code>avahi-daemon</code>, erreicht eine
+            <b>Unicast</b>-Anfrage an Port 5353 nur einen der beiden Responder (Multicast erreicht alle); antworten
+            Controller dann nicht zuverlässig, hilft das Abschalten (Matter braucht ohnehin IPv6). Gilt für alle
             Bridges dieses Node-RED, die erste zählt.</dd>
         <dt>Interface</dt><dd>mDNS nur auf diesem Netzwerkinterface (leer = alle). Gilt ebenfalls prozessweit.</dd>
         <dt>Vendor-/Product-ID</dt><dd>Nur ändern, wenn man weiß, warum. Standard ist die Test-Vendor-ID 0xFFF1,
