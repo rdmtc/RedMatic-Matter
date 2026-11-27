@@ -60,4 +60,22 @@ function trackBridge(node, bridge, detail = () => undefined) {
     return remove;
 }
 
-module.exports = {bridgeStatus, trackBridge};
+/**
+ * How far a ccu-connection is connected, judged by its enabled interfaces only:
+ * ifaceStatus also carries pseudo-interfaces such as openccu-lite's `Metadata`
+ * stream, which enabledIfaces leaves out - counting them made 3 + 1 never equal 3.
+ * @param {string[]} enabledIfaces
+ * @param {object} ifaceStatus  iface → connected
+ * @returns {'disconnected'|'partly'|'connected'}
+ */
+function ccuConnection(enabledIfaces, ifaceStatus) {
+    const ifaces = enabledIfaces || [];
+    const connected = ifaces.filter((iface) => ifaceStatus && ifaceStatus[iface]).length;
+    if (connected < 1) {
+        return 'disconnected';
+    }
+
+    return connected === ifaces.length ? 'connected' : 'partly';
+}
+
+module.exports = {bridgeStatus, trackBridge, ccuConnection};

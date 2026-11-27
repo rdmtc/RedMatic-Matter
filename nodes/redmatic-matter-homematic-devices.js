@@ -2,7 +2,7 @@ const catalogue = require('./lib/catalogue');
 const mapping = require('./lib/mapping');
 const roles = require('./lib/roles');
 const {HomematicDevice} = require('./lib/hm-device');
-const {trackBridge} = require('./lib/status');
+const {trackBridge, ccuConnection} = require('./lib/status');
 
 module.exports = function (RED) {
     RED.httpAdmin.get(
@@ -81,10 +81,10 @@ module.exports = function (RED) {
         /** ccu-connection calls this with the interface states */
         setStatus(data) {
             this.ccuStatus = data;
-            const connected = Object.values(data.ifaceStatus || {}).filter(Boolean).length;
-            if (connected < 1) {
+            const connection = ccuConnection(this.ccu.enabledIfaces, data.ifaceStatus);
+            if (connection === 'disconnected') {
                 this.detail = 'ccu disconnected';
-            } else if (connected === this.ccu.enabledIfaces.length) {
+            } else if (connection === 'connected') {
                 this.detail = 'ccu connected';
                 if (!this.ccuConnected) {
                     this.ccuConnected = true;

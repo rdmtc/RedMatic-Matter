@@ -20,6 +20,12 @@ mehrmals pro Stunde, und jedes Mal wurde die ganze Datei neu geschrieben. Nach
 einem Neustart melden sich die Controller von selbst wieder an; das kann bis
 zu einigen Minuten dauern.
 
+Auf openccu-lite ging die Bridge erst nach 90 Sekunden online, ohne die
+Homematic-Geräte (Meldung „starting without homematic … (timeout)“): Der
+Homematic-Node zählte den Metadaten-Kanal von openccu-lite als zusätzliche
+Schnittstelle und wartete deshalb immer weiter. Jetzt erscheinen die Geräte
+wieder gleich beim Start.
+
 **Release notes (English summary).** The set temperature chosen in a Matter
 controller reaches the Homematic thermostats HM-CC-RT-DN, HM-CC-RT-DN-BoM,
 HM-TC-IT-WM-W-EU and HM-CC-VG-1 again, and the CCU's set temperature shows in
@@ -31,6 +37,11 @@ controllers' subscriptions. Alexa with several Echo devices renews them many
 times an hour, and each time the whole file was rewritten. After a restart the
 controllers subscribe again by themselves, which can take up to a few minutes.
 
+On openccu-lite the bridge went online only after 90 seconds and without the
+Homematic devices ("starting without homematic … (timeout)"): the homematic
+node counted openccu-lite's metadata stream as an extra interface and kept
+waiting. The devices are there right at the start again.
+
 ### Fixed
 
 - **homematic** node: the BidCos thermostats' setpoint `SET_TEMPERATURE` is
@@ -38,6 +49,9 @@ controllers subscribe again by themselves, which can take up to a few minutes.
   `setValue` with a null datapoint and failed at the CCU
   ([#2](https://github.com/rdmtc/RedMatic-Matter/issues/2), reported by
   @BeNoBee10 — thank you!).
+- **homematic** node on openccu-lite: it never saw the CCU as fully connected
+  because it counted the metadata stream, which is no interface, so the
+  bridge started after its 90 s timeout without the Homematic devices.
 - A controller write whose datapoint the channel does not have is skipped
   with one warning per channel instead of being sent to the CCU.
 - **bridge** help: corrected the note on IPv4 mDNS beside an avahi-daemon.
