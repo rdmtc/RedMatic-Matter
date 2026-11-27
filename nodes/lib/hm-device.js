@@ -33,6 +33,7 @@ class HomematicDevice {
         this.subscriptions = [];
         this.timers = new Map();
         this.memory = new Map();
+        this.unresolved = new Set();
         this.devices = [];
         this.closed = false;
     }
@@ -174,6 +175,17 @@ class HomematicDevice {
     writeAll(writes) {
         for (const w of writes || []) {
             if (w.value === undefined) {
+                continue;
+            }
+
+            if (!w.datapoint) {
+                // the channel lacks the datapoint the mapping expected: a setValue
+                // with a null name only fails at the CCU, so say it once and skip
+                if (!this.unresolved.has(w.address)) {
+                    this.unresolved.add(w.address);
+                    this.log('warn', w.address + ': no datapoint to write ' + JSON.stringify(w.value) + ' to, skipped');
+                }
+
                 continue;
             }
 

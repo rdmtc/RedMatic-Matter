@@ -249,3 +249,51 @@ test('one enabled channel of a multi-channel actor is announced with the channel
     });
     assert.equal(unnamed.device(1).state.bridgedDeviceBasicInformation.nodeLabel, 'Aktor Werkstatt');
 });
+
+for (const [type, index] of [
+    ['HM-CC-RT-DN', 4],
+    ['HM-CC-RT-DN-BoM', 4],
+    ['HM-TC-IT-WM-W-EU', 2],
+    ['HM-CC-VG-1', 1],
+]) {
+    test(`${type}: the setpoint is SET_TEMPERATURE, read and written`, async () => {
+        const s = await setup(type);
+        const thermostat = s.device(index);
+        assert.equal(thermostat.typeKey.split('+')[0], 'thermostat');
+        const prefix = `${s.plan.iface}.${s.address}:${index}.`;
+        const watched = s.ccu.subscriptions.map((sub) => sub.filter.datapointName);
+        assert.ok(watched.includes(prefix + 'SET_TEMPERATURE'), 'subscribed to SET_TEMPERATURE');
+        assert.ok(!watched.some((name) => /\.(undefined|null)$/.test(name)), 'no unresolved subscriptions');
+        s.ccu.emitValue(prefix + 'ACTUAL_TEMPERATURE', 20.5);
+        s.ccu.emitValue(prefix + 'SET_TEMPERATURE', 21);
+        await tick(150);
+        assert.equal(thermostat.state.thermostat.localTemperature, 2050);
+        assert.equal(thermostat.state.thermostat.occupiedHeatingSetpoint, 2100);
+        assert.equal(thermostat.state.thermostat.systemMode, 4);
+        remoteWrite(thermostat, 'thermostat', 'occupiedHeatingSetpoint', 2200);
+        remoteWrite(thermostat, 'thermostat', 'systemMode', 0);
+        await tick(150);
+        assert.deepEqual(
+            s.ccu.setCalls.filter((c) => c.method !== 'reportValueUsage').map((c) => [c.channel, c.datapoint, c.value]),
+            [
+                [`${s.address}:${index}`, 'SET_TEMPERATURE', 22],
+                [`${s.address}:${index}`, 'SET_TEMPERATURE', 4.5],
+            ],
+        );
+    });
+}
+
+test('a write without a resolved datapoint is skipped and logged once', async () => {
+    const s = await setup('HmIP-eTRV-2');
+    s.hm.writeAll([
+        {address: s.address + ':1', datapoint: undefined, value: 21},
+        {address: s.address + ':1', datapoint: null, value: 22},
+    ]);
+    await tick(50);
+    assert.deepEqual(
+        s.ccu.setCalls.filter((c) => c.method !== 'reportValueUsage'),
+        [],
+        'no setValue with a null datapoint',
+    );
+    assert.equal(s.logs.filter((l) => l.includes('no datapoint to write')).length, 1);
+});

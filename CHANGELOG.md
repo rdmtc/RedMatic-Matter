@@ -5,6 +5,32 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
+## Unreleased
+
+**Release-Notes (Deutsch).** Bei den Homematic-Thermostaten HM-CC-RT-DN,
+HM-CC-RT-DN-BoM, HM-TC-IT-WM-W-EU und HM-CC-VG-1 kommt die in Matter
+eingestellte Solltemperatur wieder am Gerät an, und die Solltemperatur der
+CCU erscheint im Controller. Diese Geräte nennen den Datenpunkt
+`SET_TEMPERATURE`, den die Zuordnung nicht kannte (#2, gemeldet von
+@BeNoBee10 – danke!).
+
+**Release notes (English summary).** The set temperature chosen in a Matter
+controller reaches the Homematic thermostats HM-CC-RT-DN, HM-CC-RT-DN-BoM,
+HM-TC-IT-WM-W-EU and HM-CC-VG-1 again, and the CCU's set temperature shows in
+the controller. These devices call the datapoint `SET_TEMPERATURE`, which the
+mapping did not know (#2, reported by @BeNoBee10 - thank you!).
+
+### Fixed
+
+- **homematic** node: the BidCos thermostats' setpoint `SET_TEMPERATURE` is
+  read and written; before, a setpoint change from a controller went out as
+  `setValue` with a null datapoint and failed at the CCU
+  ([#2](https://github.com/rdmtc/RedMatic-Matter/issues/2), reported by
+  @BeNoBee10 — thank you!).
+- A controller write whose datapoint the channel does not have is skipped
+  with one warning per channel instead of being sent to the CCU.
+- **bridge** help: corrected the note on IPv4 mDNS beside an avahi-daemon.
+
 ## 1.0.2 — 2026-10-29
 
 **Release-Notes (Deutsch).** Homematic-Geräte melden jetzt eQ-3 als

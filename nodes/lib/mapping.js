@@ -710,43 +710,49 @@ function endpointsFor(c, ctx) {
                 });
             }
 
-            e.subscriptions.push({
-                datapoint: setpointDp,
-                handler: (value, msg, api) => {
-                    const setpoint = Number(value);
-                    if (setpoint > OFF) {
+            // without a resolved setpoint datapoint there is nothing to read or write
+            if (d.setpoint) {
+                e.subscriptions.push({
+                    datapoint: setpointDp,
+                    handler: (value, msg, api) => {
+                        const setpoint = Number(value);
+                        if (setpoint > OFF) {
+                            api.remember('setpoint', setpoint);
+                            return {
+                                thermostat: {occupiedHeatingSetpoint: convert.temperature(setpoint), systemMode: 4},
+                            };
+                        }
+
+                        return {thermostat: {systemMode: 0}};
+                    },
+                });
+                e.writes.push({
+                    cluster: 'thermostat',
+                    attribute: 'occupiedHeatingSetpoint',
+                    handler: (value, meta, api) => {
+                        const setpoint = clamp(round(Number(value) / 50) / 2, OFF, 30.5);
                         api.remember('setpoint', setpoint);
-                        return {thermostat: {occupiedHeatingSetpoint: convert.temperature(setpoint), systemMode: 4}};
-                    }
+                        return [{address: c.address, datapoint: d.setpoint, value: setpoint}];
+                    },
+                });
+                e.writes.push({
+                    cluster: 'thermostat',
+                    attribute: 'systemMode',
+                    handler: (value, meta, api) => {
+                        if (Number(value) === 0) {
+                            return [{address: c.address, datapoint: d.setpoint, value: OFF}];
+                        }
 
-                    return {thermostat: {systemMode: 0}};
-                },
-            });
-            e.writes.push({
-                cluster: 'thermostat',
-                attribute: 'occupiedHeatingSetpoint',
-                handler: (value, meta, api) => {
-                    const setpoint = clamp(round(Number(value) / 50) / 2, OFF, 30.5);
-                    api.remember('setpoint', setpoint);
-                    return [{address: c.address, datapoint: d.setpoint, value: setpoint}];
-                },
-            });
-            e.writes.push({
-                cluster: 'thermostat',
-                attribute: 'systemMode',
-                handler: (value, meta, api) => {
-                    if (Number(value) === 0) {
-                        return [{address: c.address, datapoint: d.setpoint, value: OFF}];
-                    }
+                        const current = api.current(setpointDp);
+                        if (current && Number(current.value) > OFF) {
+                            return null;
+                        }
 
-                    const current = api.current(setpointDp);
-                    if (current && Number(current.value) > OFF) {
-                        return null;
-                    }
+                        return [{address: c.address, datapoint: d.setpoint, value: api.recall('setpoint') || 21}];
+                    },
+                });
+            }
 
-                    return [{address: c.address, datapoint: d.setpoint, value: api.recall('setpoint') || 21}];
-                },
-            });
             if (humidity) {
                 e.subscriptions.push({
                     datapoint: dp(c.address, d.humidity),

@@ -167,7 +167,9 @@ const DATAPOINTS = {
     },
     thermostat_hm: {
         temperature: ['ACTUAL_TEMPERATURE', 'TEMPERATURE'],
-        setpoint: ['SET_POINT_TEMPERATURE', 'SETPOINT'],
+        // HM-CC-RT-DN(-BoM), HM-TC-IT-WM-W-EU and HM-CC-VG-1 call it SET_TEMPERATURE;
+        // HM-CC-TC and ZEL STG RM FWT SETPOINT
+        setpoint: ['SET_TEMPERATURE', 'SET_POINT_TEMPERATURE', 'SETPOINT'],
         mode: ['CONTROL_MODE'],
         boost: ['BOOST_MODE'],
         humidity: ['ACTUAL_HUMIDITY', 'HUMIDITY'],
