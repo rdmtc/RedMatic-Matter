@@ -48,6 +48,7 @@ test('a bridge with two endpoints goes online, numbers its endpoints and has pai
     assert.deepEqual(info.fabrics, []);
     assert.equal(info.online, true);
     assert.ok(fs.existsSync(path.join(harness.storageRoot, bridge.id)));
+    assert.equal(bridge.server.state.subscriptions.persistenceEnabled, false, 'subscriptions are not persisted');
 });
 
 test('state patches before and after start, change events mark our own writes as local', async () => {

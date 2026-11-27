@@ -14,11 +14,22 @@ CCU erscheint im Controller. Diese Geräte nennen den Datenpunkt
 `SET_TEMPERATURE`, den die Zuordnung nicht kannte (#2, gemeldet von
 @BeNoBee10 – danke!).
 
+Die Bridge schreibt seltener auf die SD-Karte: matter.js speichert die
+Abonnements der Controller nicht mehr. Alexa mit mehreren Echos erneuert sie
+mehrmals pro Stunde, und jedes Mal wurde die ganze Datei neu geschrieben. Nach
+einem Neustart melden sich die Controller von selbst wieder an; das kann bis
+zu einigen Minuten dauern.
+
 **Release notes (English summary).** The set temperature chosen in a Matter
 controller reaches the Homematic thermostats HM-CC-RT-DN, HM-CC-RT-DN-BoM,
 HM-TC-IT-WM-W-EU and HM-CC-VG-1 again, and the CCU's set temperature shows in
 the controller. These devices call the datapoint `SET_TEMPERATURE`, which the
 mapping did not know (#2, reported by @BeNoBee10 - thank you!).
+
+The bridge writes to the SD card less often: matter.js no longer stores the
+controllers' subscriptions. Alexa with several Echo devices renews them many
+times an hour, and each time the whole file was rewritten. After a restart the
+controllers subscribe again by themselves, which can take up to a few minutes.
 
 ### Fixed
 
@@ -30,6 +41,13 @@ mapping did not know (#2, reported by @BeNoBee10 - thank you!).
 - A controller write whose datapoint the channel does not have is skipped
   with one warning per channel instead of being sent to the CCU.
 - **bridge** help: corrected the note on IPv4 mDNS beside an avahi-daemon.
+
+### Changed
+
+- **bridge**: matter.js no longer stores the controllers' subscriptions. It
+  rewrote that file on every new or ended subscription - many times an hour
+  with Alexa's Echo devices - only to re-establish them after a restart; the
+  controllers subscribe again by themselves after their subscription timeout.
 
 ## 1.0.2 — 2026-10-29
 

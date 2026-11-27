@@ -575,6 +575,10 @@ class MatterBridge extends EventEmitter {
                 id: this.id,
                 network: {port: o.port},
                 commissioning: {passcode: o.passcode, discriminator: o.discriminator},
+                // matter.js rewrites the subscription list in its storage on every new and every
+                // cancelled subscription (several times a minute with some controllers) only to
+                // re-establish them after a restart; controllers subscribe again by themselves
+                subscriptions: {persistenceEnabled: false},
                 productDescription: {
                     name: pairing.label(o.name, 'RedMatic'),
                     deviceType: this.lib.AggregatorEndpoint.deviceType,
