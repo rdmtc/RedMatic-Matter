@@ -5,7 +5,7 @@ Notable changes to redmatic-matter. Format follows
 user-visible change and the reason, not the commit list (the release notes
 append commits automatically).
 
-## Unreleased
+## 1.0.3 — 2026-11-27
 
 **Release-Notes (Deutsch).** Bei den Homematic-Thermostaten HM-CC-RT-DN,
 HM-CC-RT-DN-BoM, HM-TC-IT-WM-W-EU und HM-CC-VG-1 kommt die in Matter
